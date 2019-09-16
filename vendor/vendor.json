@@ -3,6 +3,14 @@
 	"ignore": "test",
 	"package": [
 		{
+			"path": "github.com/ricardoAguirreSanchez/tp2-rna-hopfield/algoritmo",
+			"revision": ""
+		},
+		{
+			"path": "github.com/ricardoAguirreSanchez/tp2-rna-hopfield/formulario",
+			"revision": ""
+		},
+		{
 			"checksumSHA1": "9BVOgS89ZFcJzqtjii1k9qaCQ1g=",
 			"path": "gonum.org/v1/gonum/blas",
 			"revision": "975d99cd20a9b4fd8e0a597f1d71ccc21461d73a",
@@ -93,5 +101,5 @@
 			"revisionTime": "2019-09-15T12:53:29Z"
 		}
 	],
-	"rootPath": "github.com/mighty-everglades-61271"
+	"rootPath": "github.com/ricardoAguirreSanchez/tp2-rna-hopfield"
 }
