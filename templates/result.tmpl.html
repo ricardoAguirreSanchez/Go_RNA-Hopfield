@@ -1,0 +1,74 @@
+<html>
+<style>
+  td input {
+    width: 24px;
+    text-align: center;          
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px;
+    /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+</style>
+{{template "header.tmpl.html"}}
+
+<body>
+  {{template "nav.tmpl.html"}}
+  <form action="/">
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Ingrese la imagen a reconocer</th>
+            </tr>
+
+            {{ range $fi := .FormularioInput.Matriz }}
+            <tr>
+              {{ range $value := $fi}}
+              <td><input name="00" type="text" value="{{$value}}"/></td>
+              {{ end }}
+              </tr>
+            {{ end }}
+
+          </table>
+        </div>
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Resultado</th>
+            </tr>
+            {{ range $fi := .FormularioOutput.Matriz }}
+            <tr>
+              {{ range $value := $fi}}
+              <td><input disabled name="00" type="text" value="{{$value}}"/></td>
+              {{ end }}
+              </tr>
+            {{ end }}
+          </table>
+          <div>
+              <input type="submit" value="volver"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+</body>
+
+</html>
