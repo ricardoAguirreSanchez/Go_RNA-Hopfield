@@ -8,71 +8,21 @@ import (
 )
 
 func Aprende() AlgoritmoStruct {
+
 	//creamos patrones
 	fmt.Println("------------Creamos patrones------------------")
-	matriz10x10Facebook := [][]string{}
-	row1 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row2 := []string{"", "", "", "", "*", "*", "*", "", "", ""}
-	row3 := []string{"", "", "", "", "*", "*", "*", "", "", ""}
-	row4 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row5 := []string{"", "", "", "*", "*", "*", "*", "", "", ""}
-	row6 := []string{"", "", "", "*", "*", "*", "*", "", "", ""}
-	row7 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row8 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row9 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row10 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-
-	matriz10x10Facebook = append(matriz10x10Facebook, row1)
-	matriz10x10Facebook = append(matriz10x10Facebook, row2)
-	matriz10x10Facebook = append(matriz10x10Facebook, row3)
-	matriz10x10Facebook = append(matriz10x10Facebook, row4)
-	matriz10x10Facebook = append(matriz10x10Facebook, row5)
-	matriz10x10Facebook = append(matriz10x10Facebook, row6)
-	matriz10x10Facebook = append(matriz10x10Facebook, row7)
-	matriz10x10Facebook = append(matriz10x10Facebook, row8)
-	matriz10x10Facebook = append(matriz10x10Facebook, row9)
-	matriz10x10Facebook = append(matriz10x10Facebook, row10)
-
-	patron1 := crearPatron(matriz10x10Facebook)
-
-	fmt.Println("----------------------------------------------")
-	matriz10x10WP := [][]string{}
-
-	// Create three string slices.
-	row1 = []string{"", "", "", "*", "*", "*", "*", "", "", ""}
-	row2 = []string{"", "", "*", "", "", "", "", "*", "", ""}
-	row3 = []string{"", "*", "", "*", "", "", "", "", "*", ""}
-	row4 = []string{"", "*", "*", "*", "", "", "", "", "*", ""}
-	row5 = []string{"", "*", "*", "", "", "", "", "", "*", ""}
-	row6 = []string{"", "*", "", "*", "", "", "*", "*", "*", ""}
-	row7 = []string{"", "*", "", "", "*", "*", "*", "", "*", ""}
-	row8 = []string{"*", "*", "", "", "", "", "", "", "*", ""}
-	row9 = []string{"*", "*", "*", "", "", "", "", "*", "", ""}
-	row10 = []string{"", "", "", "*", "*", "*", "*", "", "", ""}
-
-	// Append string slices to outer slice.
-	matriz10x10WP = append(matriz10x10WP, row1)
-	matriz10x10WP = append(matriz10x10WP, row2)
-	matriz10x10WP = append(matriz10x10WP, row3)
-	matriz10x10WP = append(matriz10x10WP, row4)
-	matriz10x10WP = append(matriz10x10WP, row5)
-	matriz10x10WP = append(matriz10x10WP, row6)
-	matriz10x10WP = append(matriz10x10WP, row7)
-	matriz10x10WP = append(matriz10x10WP, row8)
-	matriz10x10WP = append(matriz10x10WP, row9)
-	matriz10x10WP = append(matriz10x10WP, row10)
-	patron2 := crearPatron(matriz10x10WP)
-	fmt.Println("------------------Fin de crear patrones----------------------------")
+	matrizLinterna := CrearMatrizLinterna()
+	patron1 := crearPatron(matrizLinterna)
 
 	D1 := mat.NewDense(100, 100, nil)
 	D1.Product(patron1.T(), patron1)
-	// println("patron1' * patron1")
-	// matPrint(D1)
 
 	D11 := mat.NewDense(100, 100, nil)
 	D11.Apply(diagonalEnCeros, D1)
-	// println("patron1 con diagonal ceros:")
-	// matPrint(D11)
+
+	fmt.Println("------------Creamos patrones------------------")
+	matrizFlash := CrearMatrizFlash()
+	patron2 := crearPatron(matrizFlash)
 
 	D2 := mat.NewDense(100, 100, nil)
 	D2.Product(patron2.T(), patron2)
@@ -80,11 +30,67 @@ func Aprende() AlgoritmoStruct {
 	D22 := mat.NewDense(100, 100, nil)
 	D22.Apply(diagonalEnCeros, D2)
 
-	pesoRed := mat.NewDense(100, 100, nil)
-	pesoRed.Add(D11, D22)
-	// println("pesoRed:")
-	// matPrint(pesoRed)
-	return AlgoritmoStruct{matriz10x10Facebook, matriz10x10WP, patron1, patron2, D11, D22, pesoRed}
+	fmt.Println("------------Creamos patrones------------------")
+	matrizBatman := CrearMatrizBatman()
+	patron3 := crearPatron(matrizBatman)
+
+	D3 := mat.NewDense(100, 100, nil)
+	D3.Product(patron3.T(), patron3)
+
+	D33 := mat.NewDense(100, 100, nil)
+	D33.Apply(diagonalEnCeros, D3)
+
+	fmt.Println("------------Creamos patrones------------------")
+	matriz4Fantastico := CrearMatriz4Fantasticos()
+	patron4 := crearPatron(matriz4Fantastico)
+
+	D4 := mat.NewDense(100, 100, nil)
+	D4.Product(patron4.T(), patron4)
+
+	D44 := mat.NewDense(100, 100, nil)
+	D44.Apply(diagonalEnCeros, D4)
+
+	fmt.Println("------------Creamos patrones------------------")
+	matrizSpiderman := CrearMatrizSpiderman()
+	patron5 := crearPatron(matrizSpiderman)
+
+	D5 := mat.NewDense(100, 100, nil)
+	D5.Product(patron5.T(), patron5)
+
+	D55 := mat.NewDense(100, 100, nil)
+	D55.Apply(diagonalEnCeros, D5)
+
+	fmt.Println("------------Creamos patrones------------------")
+	matrizThor := CrearMatrizThor()
+	patron6 := crearPatron(matrizThor)
+
+	D6 := mat.NewDense(100, 100, nil)
+	D6.Product(patron6.T(), patron6)
+
+	D66 := mat.NewDense(100, 100, nil)
+	D66.Apply(diagonalEnCeros, D6)
+
+	fmt.Println("------------Calculamos el peso------------------")
+	pesoRed2 := mat.NewDense(100, 100, nil)
+	pesoRed2.Add(D11, D22)
+	pesoRed3 := mat.NewDense(100, 100, nil)
+	pesoRed3.Add(pesoRed2, D33)
+	pesoRed4 := mat.NewDense(100, 100, nil)
+	pesoRed4.Add(pesoRed3, D44)
+	pesoRed5 := mat.NewDense(100, 100, nil)
+	pesoRed5.Add(pesoRed4, D55)
+	pesoTotal := mat.NewDense(100, 100, nil)
+	pesoTotal.Add(pesoRed5, D66)
+
+	patronStructs := []PatronStruct{}
+	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D11})
+	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D22})
+	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D33})
+	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D44})
+	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D55})
+	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D66})
+
+	return AlgoritmoStruct{patronStructs, pesoTotal}
 }
 
 func AplicoBusqueda(formularioInput formulario.Formulario, algoritmoStruct AlgoritmoStruct) formulario.Formulario {
@@ -101,22 +107,6 @@ func AplicoBusqueda(formularioInput formulario.Formulario, algoritmoStruct Algor
 }
 
 ////--------------------privadas--------------
-
-// /*
-// 	convertMatrizAFormulario: convierte de la matriz a la estructura del form q se usa
-// */
-// func convertMatrizAFormulario(matrizRespuesta mat.Matrix) formulario.Formulario {
-// 	formulario := formulario.Formulario{}
-// 	formulario.Matriz = nuevaMatriz()
-
-// 	for i := 0; i < 10; i++ {
-// 		for j := 0; j < 10; j++ {
-// 			value := matrizRespuesta.At(i, j)
-// 			formulario.Matriz[i][j] = strconv.Itoa(int(value))
-// 		}
-// 	}
-// 	return formulario
-// }
 
 func matPrint(X mat.Matrix) {
 	fa := mat.Formatted(X, mat.Prefix(""), mat.Squeeze())
@@ -160,6 +150,9 @@ func crearPatron(matriz10x10 [][]string) mat.Matrix {
 	return A
 }
 
+/*
+	diagonalEnCeros: cambia la diagonal de la matriz por ceros
+*/
 func diagonalEnCeros(i, j int, v float64) float64 {
 	if i == j {
 		return 0
@@ -175,10 +168,13 @@ func F(i, j int, v float64) float64 {
 	return -1
 }
 
+/*
+	testear: devuelve la matriz de 10x10 que mejor lo cumple
+*/
 func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 	limite := 1
-	contador1 := 0
-	contador2 := 0
+
+	var contador1, contador2, contador3, contador4, contador5, contador6 int = 0, 0, 0, 0, 0, 0
 
 	comodin := prueba
 	pruebaPorPEso := mat.NewDense(1, 100, nil)
@@ -188,7 +184,8 @@ func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 		pruebaAplicoFn := mat.NewDense(1, 100, nil)
 		pruebaAplicoFn.Apply(F, pruebaPorPEso)
 
-		if esIgual(pruebaAplicoFn, algoStruct.patron1) {
+		//controlamos si coincide con alguno
+		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[0].patronVector) {
 			contador1 = contador1 + 1
 			fmt.Println("mach con patron 1")
 		} else {
@@ -196,7 +193,7 @@ func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 			fmt.Println("NO mach con patron 1")
 		}
 
-		if esIgual(pruebaAplicoFn, algoStruct.patron2) {
+		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[1].patronVector) {
 			contador2 = contador2 + 1
 			fmt.Println("mach con patron 2")
 		} else {
@@ -204,22 +201,74 @@ func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 			fmt.Println("NO mach con patron 2")
 		}
 
+		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[2].patronVector) {
+			contador3 = contador3 + 1
+			fmt.Println("mach con patron 3")
+		} else {
+			contador3 = 0
+			fmt.Println("NO mach con patron 3")
+		}
+
+		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[3].patronVector) {
+			contador4 = contador4 + 1
+			fmt.Println("mach con patron 4")
+		} else {
+			contador4 = 0
+			fmt.Println("NO mach con patron 4")
+		}
+
+		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[4].patronVector) {
+			contador5 = contador5 + 1
+			fmt.Println("mach con patron 5")
+		} else {
+			contador5 = 0
+			fmt.Println("NO mach con patron 5")
+		}
+
+		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[5].patronVector) {
+			contador6 = contador6 + 1
+			fmt.Println("mach con patron 6")
+		} else {
+			contador6 = 0
+			fmt.Println("NO mach con patron 6")
+		}
+
+		//Revisamos la condicion de corte
 		if contador1 >= 2 {
-			//fin
 			fmt.Println("es igual al patron 1 - Fin!")
-			return algoStruct.matriz10x10Facebook
+			return algoStruct.patronStructs[0].matriz
 		}
 
 		if contador2 >= 2 {
-			//fin
 			fmt.Println("es igual al patron 2 - Fin!")
-			return algoStruct.matriz10x10WP
+			return algoStruct.patronStructs[1].matriz
 		}
+
+		if contador3 >= 2 {
+			fmt.Println("es igual al patron 3 - Fin!")
+			return algoStruct.patronStructs[2].matriz
+		}
+
+		if contador4 >= 2 {
+			fmt.Println("es igual al patron 4 - Fin!")
+			return algoStruct.patronStructs[3].matriz
+		}
+
+		if contador5 >= 2 {
+			fmt.Println("es igual al patron 5 - Fin!")
+			return algoStruct.patronStructs[4].matriz
+		}
+
+		if contador6 >= 2 {
+			fmt.Println("es igual al patron 6 - Fin!")
+			return algoStruct.patronStructs[5].matriz
+		}
+
 		comodin = pruebaPorPEso
 		limite += limite
 	}
 
-	fmt.Println("no existe ninguno - Fin!")
+	fmt.Println("no existe ninguno - Fin :(!")
 	return nuevaMatriz()
 }
 
