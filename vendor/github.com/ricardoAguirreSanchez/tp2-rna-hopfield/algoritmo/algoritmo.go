@@ -7,7 +7,7 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
-func Aprende() AlgoritmoStruct {
+func Aprende() *mat.Dense {
 
 	//creamos patrones
 	fmt.Println("------------CrearMatrizLinterna------------------")
@@ -94,32 +94,60 @@ func Aprende() AlgoritmoStruct {
 	pesoTotal := mat.NewDense(100, 100, nil)
 	pesoTotal.Add(pesoRed5, D66)
 
-	patronStructs := []PatronStruct{}
-	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D11})
-	patronStructs = append(patronStructs, PatronStruct{matrizFlash, patron2, D22})
-	patronStructs = append(patronStructs, PatronStruct{matrizBatman, patron3, D33})
-	patronStructs = append(patronStructs, PatronStruct{matriz4Fantastico, patron4, D44})
-	patronStructs = append(patronStructs, PatronStruct{matrizSpiderman, patron5, D55})
-	patronStructs = append(patronStructs, PatronStruct{matrizThor, patron6, D66})
+	fmt.Println("patron1:")
+	matPrint(patron1)
+	fmt.Println("patron2:")
+	matPrint(patron2)
+	fmt.Println("patron3:")
+	matPrint(patron3)
+	fmt.Println("patron4:")
+	matPrint(patron4)
+	fmt.Println("patron5:")
+	matPrint(patron5)
+	fmt.Println("patron6:")
+	matPrint(patron6)
 
-	return AlgoritmoStruct{patronStructs, pesoTotal}
+	return pesoTotal
 }
 
-func AplicoBusqueda(formularioInput formulario.Formulario, algoritmoStruct AlgoritmoStruct) formulario.Formulario {
+func AplicoBusqueda(formularioInput formulario.Formulario, peso *mat.Dense) formulario.Formulario {
 
 	var formularioRespuesta formulario.Formulario
 
-	prueba := crearPrueba(formularioInput)
+	patronIngresado := crearPrueba(formularioInput)
+	fmt.Println("patron ingresado:")
+	matPrint(patronIngresado)
 
-	matPrint(prueba)
-	matrizResultado := testear(prueba, algoritmoStruct)
+	matrizResultado := testear(patronIngresado, peso)
 
-	formularioRespuesta.Matriz = matrizResultado
+	formularioRespuesta.Matriz = convertMatMatriz(matrizResultado)
+
+	fmt.Println("matriz obtenida:")
+	PrintMatrix(formularioRespuesta.Matriz)
 
 	return formularioRespuesta
 }
 
 ////--------------------privadas--------------
+
+/*
+	convertMatMatriz: convierte de Dense a [][]string
+*/
+func convertMatMatriz(pruebaAplicoFn *mat.Dense) [][]string {
+
+	resul := nuevaMatriz()
+	for i := 0; i < 10; i++ {
+		for j := 0; j < 10; j++ {
+			posicion := j + i*10
+			if int(pruebaAplicoFn.At(0, posicion)) == 1 {
+				resul[i][j] = "*"
+			} else {
+				resul[i][j] = ""
+			}
+		}
+	}
+	return resul
+}
 
 func matPrint(X mat.Matrix) {
 	fa := mat.Formatted(X, mat.Prefix(""), mat.Squeeze())
@@ -184,7 +212,7 @@ func diagonalEnCeros(i, j int, v float64) float64 {
 }
 
 func Fn(i, j int, v float64) float64 {
-	if int(v) > 0 {
+	if v > 0 {
 		return 1
 	}
 	return -1
@@ -193,111 +221,49 @@ func Fn(i, j int, v float64) float64 {
 /*
 	testear: devuelve la matriz de 10x10 que mejor lo cumple
 */
-func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
+func testear(prueba mat.Matrix, peso *mat.Dense) *mat.Dense {
 	limite := 1
 
-	var contador1, contador2, contador3, contador4, contador5, contador6 int
+	var contadorEstable int
 
-	comodin := prueba
-	pruebaPorPEso := mat.NewDense(1, 100, nil)
-	for limite <= 10 {
+	pruebaPorPeso1 := mat.NewDense(1, 100, nil)
+	pruebaPorPeso1.Product(prueba, peso)
 
-		fmt.Println("Limite: ", limite)
+	pruebaPorPesoFn1 := mat.NewDense(1, 100, nil)
+	pruebaPorPesoFn1.Apply(Fn, pruebaPorPeso1)
 
-		pruebaPorPEso.Product(comodin, algoStruct.pesoRed)
-		pruebaAplicoFn := mat.NewDense(1, 100, nil)
-		pruebaAplicoFn.Apply(Fn, pruebaPorPEso)
+	pruebaAplicoFnEstable := mat.NewDense(1, 100, nil)
+	pruebaAplicoFnEstable = pruebaPorPesoFn1
+	comodin := pruebaPorPesoFn1
+	contadorEstable = 0
 
-		//controlamos si coincide con alguno
-		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[0].patronVector) {
-			contador1 = contador1 + 1
-			fmt.Println("mach con patron 1")
+	for limite <= 9 {
+		fmt.Println("Iteracion: ", limite)
+		pruebaPorPeso := mat.NewDense(1, 100, nil)
+		pruebaPorPeso.Product(comodin, peso)
+
+		pruebaPorPesoFn := mat.NewDense(1, 100, nil)
+		pruebaPorPesoFn.Apply(Fn, pruebaPorPeso)
+
+		if esIgual(pruebaAplicoFnEstable, pruebaPorPesoFn) {
+			contadorEstable = contadorEstable + 1
 		} else {
-			contador1 = 0
-			fmt.Println("NO mach con patron 1")
+			pruebaAplicoFnEstable = pruebaPorPesoFn
 		}
 
-		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[1].patronVector) {
-			contador2 = contador2 + 1
-			fmt.Println("mach con patron 2")
-		} else {
-			contador2 = 0
-			fmt.Println("NO mach con patron 2")
+		if contadorEstable >= 2 {
+			fmt.Println("Se estabilizo!")
+			return pruebaAplicoFnEstable
 		}
-
-		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[2].patronVector) {
-			contador3 = contador3 + 1
-			fmt.Println("mach con patron 3")
-		} else {
-			contador3 = 0
-			fmt.Println("NO mach con patron 3")
-		}
-
-		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[3].patronVector) {
-			contador4 = contador4 + 1
-			fmt.Println("mach con patron 4")
-		} else {
-			contador4 = 0
-			fmt.Println("NO mach con patron 4")
-		}
-
-		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[4].patronVector) {
-			contador5 = contador5 + 1
-			fmt.Println("mach con patron 5")
-		} else {
-			contador5 = 0
-			fmt.Println("NO mach con patron 5")
-		}
-
-		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[5].patronVector) {
-			contador6 = contador6 + 1
-			fmt.Println("mach con patron 6")
-		} else {
-			contador6 = 0
-			fmt.Println("NO mach con patron 6")
-		}
-
-		//Revisamos la condicion de corte
-		if contador1 >= 2 {
-			fmt.Println("es igual al patron 1 - Fin!")
-			return algoStruct.patronStructs[0].matriz
-		}
-
-		if contador2 >= 2 {
-			fmt.Println("es igual al patron 2 - Fin!")
-			return algoStruct.patronStructs[1].matriz
-		}
-
-		if contador3 >= 2 {
-			fmt.Println("es igual al patron 3 - Fin!")
-			return algoStruct.patronStructs[2].matriz
-		}
-
-		if contador4 >= 2 {
-			fmt.Println("es igual al patron 4 - Fin!")
-			return algoStruct.patronStructs[3].matriz
-		}
-
-		if contador5 >= 2 {
-			fmt.Println("es igual al patron 5 - Fin!")
-			return algoStruct.patronStructs[4].matriz
-		}
-
-		if contador6 >= 2 {
-			fmt.Println("es igual al patron 6 - Fin!")
-			return algoStruct.patronStructs[5].matriz
-		}
-
-		comodin = pruebaAplicoFn
+		comodin = pruebaPorPesoFn
 		limite = limite + 1
 	}
-
-	fmt.Println("no existe ninguno - Fin :(!")
-	return matrizNoEncontrada()
+	fmt.Println("No se estabilizo")
+	return comodin
 }
 
 /*
-	creaPatronVacio: crea una matriz vacia para indicar q no encontramos coincidencia
+	creaMatriz10x10Vacio: crea una matriz vacia para indicar q no encontramos coincidencia
 */
 func creaMatriz10x10Vacio() mat.Matrix {
 
