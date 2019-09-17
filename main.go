@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
@@ -12,8 +11,8 @@ import (
 )
 
 func main() {
-	port := os.Getenv("PORT")
-	// port := "8080"
+	// port := os.Getenv("PORT")
+	port := "8080"
 
 	if port == "" {
 		log.Fatal("$PORT must be set")
@@ -24,7 +23,7 @@ func main() {
 	router.LoadHTMLGlob("templates/*.tmpl.html")
 	router.Static("/static", "static")
 
-	algoritmoStruct := algoritmo.Aprende()
+	peso := algoritmo.Aprende()
 
 	router.GET("/", func(c *gin.Context) {
 
@@ -34,10 +33,7 @@ func main() {
 	router.POST("/calcular", func(c *gin.Context) {
 
 		formularioInput := formulario.GetInput(c)
-
-		formularioOutput := algoritmo.AplicoBusqueda(formularioInput, algoritmoStruct)
-
-		algoritmo.PrintMatrix(formularioOutput.Matriz)
+		formularioOutput := algoritmo.AplicoBusqueda(formularioInput, peso)
 
 		//cargo la pag con resultado
 		formularioResultado := formulario.FormularioResultado{formularioInput, formularioOutput}

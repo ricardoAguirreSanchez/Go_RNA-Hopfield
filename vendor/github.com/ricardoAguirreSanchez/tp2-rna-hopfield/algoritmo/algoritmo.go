@@ -183,8 +183,8 @@ func diagonalEnCeros(i, j int, v float64) float64 {
 	}
 }
 
-func F(i, j int, v float64) float64 {
-	if v > 0 {
+func Fn(i, j int, v float64) float64 {
+	if int(v) > 0 {
 		return 1
 	}
 	return -1
@@ -206,7 +206,7 @@ func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 
 		pruebaPorPEso.Product(comodin, algoStruct.pesoRed)
 		pruebaAplicoFn := mat.NewDense(1, 100, nil)
-		pruebaAplicoFn.Apply(F, pruebaPorPEso)
+		pruebaAplicoFn.Apply(Fn, pruebaPorPEso)
 
 		//controlamos si coincide con alguno
 		if esIgual(pruebaAplicoFn, algoStruct.patronStructs[0].patronVector) {
