@@ -102,6 +102,7 @@ func Aprende() AlgoritmoStruct {
 	patronStructs = append(patronStructs, PatronStruct{matrizSpiderman, patron5, D55})
 	patronStructs = append(patronStructs, PatronStruct{matrizThor, patron6, D66})
 
+	matPrint(pesoTotal)
 	return AlgoritmoStruct{patronStructs, pesoTotal}
 }
 
@@ -111,6 +112,7 @@ func AplicoBusqueda(formularioInput formulario.Formulario, algoritmoStruct Algor
 
 	prueba := crearPrueba(formularioInput)
 
+	matPrint(prueba)
 	matrizResultado := testear(prueba, algoritmoStruct)
 
 	formularioRespuesta.Matriz = matrizResultado
@@ -150,10 +152,10 @@ func crearRow(matriz [][]string) []float64 {
 	resul := []float64{}
 	for i := range matriz {
 		for j := range matriz[i] {
-			if matriz[i][j] == "" {
-				resul = append(resul, -1)
-			} else {
+			if matriz[i][j] == "*" {
 				resul = append(resul, 1)
+			} else {
+				resul = append(resul, -1)
 			}
 		}
 	}
@@ -200,8 +202,10 @@ func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 	comodin := prueba
 	pruebaPorPEso := mat.NewDense(1, 100, nil)
 	for limite <= 10 {
-		pruebaPorPEso.Product(comodin, algoStruct.pesoRed)
 
+		fmt.Println("Limite: ", limite)
+
+		pruebaPorPEso.Product(comodin, algoStruct.pesoRed)
 		pruebaAplicoFn := mat.NewDense(1, 100, nil)
 		pruebaAplicoFn.Apply(F, pruebaPorPEso)
 
@@ -285,8 +289,8 @@ func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 			return algoStruct.patronStructs[5].matriz
 		}
 
-		comodin = pruebaPorPEso
-		limite += limite
+		comodin = pruebaAplicoFn
+		limite = limite + 1
 	}
 
 	fmt.Println("no existe ninguno - Fin :(!")

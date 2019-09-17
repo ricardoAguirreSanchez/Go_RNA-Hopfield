@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
 	"github.com/ricardoAguirreSanchez/tp2-rna-hopfield/algoritmo"
+
 	"github.com/ricardoAguirreSanchez/tp2-rna-hopfield/formulario"
 )
 
