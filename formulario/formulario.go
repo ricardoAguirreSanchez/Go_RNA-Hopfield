@@ -8,7 +8,7 @@ import (
 )
 
 func GetInput(c *gin.Context) Formulario {
-	fmt.Println("GetInput - inicio ")
+	fmt.Println("Matriz ingresada: ")
 	formularioInput := Formulario{}
 	formularioInput.Matriz = nuevaMatriz()
 	for i := 0; i < 10; i++ {
@@ -17,8 +17,7 @@ func GetInput(c *gin.Context) Formulario {
 			formularioInput.Matriz[i][j] = c.Request.FormValue(value)
 		}
 	}
-	fmt.Println("GetInput - fin ")
-	printMatrix(formularioInput.Matriz)
+	PrintMatrix(formularioInput.Matriz)
 	return formularioInput
 }
 
@@ -34,7 +33,7 @@ func nuevaMatriz() [][]string {
 /*
 	printMatrix: printea matrices de 10 x 10
 */
-func printMatrix(matrizLinterna [][]string) {
+func PrintMatrix(matrizLinterna [][]string) {
 	matrizLinternaAux := matrizLinterna
 	for i, row := range matrizLinternaAux {
 		for j, value := range row {

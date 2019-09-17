@@ -10,11 +10,11 @@ import (
 func Aprende() AlgoritmoStruct {
 
 	//creamos patrones
-	fmt.Println("------------Creamos patrones1------------------")
+	fmt.Println("------------CrearMatrizLinterna------------------")
 	matrizLinterna := CrearMatrizLinterna()
 	patron1 := crearPatron(matrizLinterna)
 
-	printMatrix(matrizLinterna)
+	PrintMatrix(matrizLinterna)
 
 	D1 := mat.NewDense(100, 100, nil)
 	D1.Product(patron1.T(), patron1)
@@ -22,11 +22,11 @@ func Aprende() AlgoritmoStruct {
 	D11 := mat.NewDense(100, 100, nil)
 	D11.Apply(diagonalEnCeros, D1)
 
-	fmt.Println("------------Creamos patrones------------------")
+	fmt.Println("------------CrearMatrizFlash------------------")
 	matrizFlash := CrearMatrizFlash()
 	patron2 := crearPatron(matrizFlash)
 
-	printMatrix(matrizFlash)
+	PrintMatrix(matrizFlash)
 
 	D2 := mat.NewDense(100, 100, nil)
 	D2.Product(patron2.T(), patron2)
@@ -34,11 +34,11 @@ func Aprende() AlgoritmoStruct {
 	D22 := mat.NewDense(100, 100, nil)
 	D22.Apply(diagonalEnCeros, D2)
 
-	fmt.Println("------------Creamos patrones------------------")
+	fmt.Println("------------CrearMatrizBatman------------------")
 	matrizBatman := CrearMatrizBatman()
 	patron3 := crearPatron(matrizBatman)
 
-	printMatrix(matrizBatman)
+	PrintMatrix(matrizBatman)
 
 	D3 := mat.NewDense(100, 100, nil)
 	D3.Product(patron3.T(), patron3)
@@ -46,11 +46,11 @@ func Aprende() AlgoritmoStruct {
 	D33 := mat.NewDense(100, 100, nil)
 	D33.Apply(diagonalEnCeros, D3)
 
-	fmt.Println("------------Creamos patrones------------------")
+	fmt.Println("------------CrearMatriz4Fantasticos------------------")
 	matriz4Fantastico := CrearMatriz4Fantasticos()
 	patron4 := crearPatron(matriz4Fantastico)
 
-	printMatrix(matriz4Fantastico)
+	PrintMatrix(matriz4Fantastico)
 
 	D4 := mat.NewDense(100, 100, nil)
 	D4.Product(patron4.T(), patron4)
@@ -58,11 +58,11 @@ func Aprende() AlgoritmoStruct {
 	D44 := mat.NewDense(100, 100, nil)
 	D44.Apply(diagonalEnCeros, D4)
 
-	fmt.Println("------------Creamos patrones------------------")
+	fmt.Println("------------CrearMatrizSpiderman------------------")
 	matrizSpiderman := CrearMatrizSpiderman()
 	patron5 := crearPatron(matrizSpiderman)
 
-	printMatrix(matrizSpiderman)
+	PrintMatrix(matrizSpiderman)
 
 	D5 := mat.NewDense(100, 100, nil)
 	D5.Product(patron5.T(), patron5)
@@ -70,11 +70,11 @@ func Aprende() AlgoritmoStruct {
 	D55 := mat.NewDense(100, 100, nil)
 	D55.Apply(diagonalEnCeros, D5)
 
-	fmt.Println("------------Creamos patrones------------------")
+	fmt.Println("------------CrearMatrizThor------------------")
 	matrizThor := CrearMatrizThor()
 	patron6 := crearPatron(matrizThor)
 
-	printMatrix(matrizThor)
+	PrintMatrix(matrizThor)
 
 	D6 := mat.NewDense(100, 100, nil)
 	D6.Product(patron6.T(), patron6)
@@ -102,7 +102,6 @@ func Aprende() AlgoritmoStruct {
 	patronStructs = append(patronStructs, PatronStruct{matrizSpiderman, patron5, D55})
 	patronStructs = append(patronStructs, PatronStruct{matrizThor, patron6, D66})
 
-	matPrint(pesoTotal)
 	return AlgoritmoStruct{patronStructs, pesoTotal}
 }
 
@@ -197,7 +196,7 @@ func F(i, j int, v float64) float64 {
 func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 	limite := 1
 
-	var contador1, contador2, contador3, contador4, contador5, contador6 int = 0, 0, 0, 0, 0, 0
+	var contador1, contador2, contador3, contador4, contador5, contador6 int
 
 	comodin := prueba
 	pruebaPorPEso := mat.NewDense(1, 100, nil)
@@ -316,14 +315,12 @@ func creaMatriz10x10Vacio() mat.Matrix {
 */
 func esIgual(pruebaAplicoFn *mat.Dense, patron1 mat.Matrix) bool {
 	resul := true
-
 	C := mat.NewDense(1, 100, nil)
 	C.Sub(pruebaAplicoFn, patron1)
-
 	count := 100
 	//buscamos si hay todos en cero
 	for indexI := 0; indexI < count; indexI++ {
-		if C.At(0, indexI) != 0 {
+		if int(C.At(0, indexI)) != 0 {
 			return false
 		}
 	}
@@ -343,7 +340,7 @@ func crearPrueba(formu formulario.Formulario) mat.Matrix {
 /*
 	printMatrix: printea matrices de 10 x 10
 */
-func printMatrix(matrizLinterna [][]string) {
+func PrintMatrix(matrizLinterna [][]string) {
 	matrizLinternaAux := matrizLinterna
 	for i, row := range matrizLinternaAux {
 		for j, value := range row {
