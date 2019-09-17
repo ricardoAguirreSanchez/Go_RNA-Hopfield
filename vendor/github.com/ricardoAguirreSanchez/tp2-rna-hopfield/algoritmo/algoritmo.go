@@ -10,11 +10,11 @@ import (
 func Aprende() AlgoritmoStruct {
 
 	//creamos patrones
-	fmt.Println("------------Creamos patrones------------------")
+	fmt.Println("------------Creamos patrones1------------------")
 	matrizLinterna := CrearMatrizLinterna()
 	patron1 := crearPatron(matrizLinterna)
 
-	matPrint(patron1)
+	printMatrix(matrizLinterna)
 
 	D1 := mat.NewDense(100, 100, nil)
 	D1.Product(patron1.T(), patron1)
@@ -26,7 +26,7 @@ func Aprende() AlgoritmoStruct {
 	matrizFlash := CrearMatrizFlash()
 	patron2 := crearPatron(matrizFlash)
 
-	matPrint(patron2)
+	printMatrix(matrizFlash)
 
 	D2 := mat.NewDense(100, 100, nil)
 	D2.Product(patron2.T(), patron2)
@@ -38,7 +38,7 @@ func Aprende() AlgoritmoStruct {
 	matrizBatman := CrearMatrizBatman()
 	patron3 := crearPatron(matrizBatman)
 
-	matPrint(patron3)
+	printMatrix(matrizBatman)
 
 	D3 := mat.NewDense(100, 100, nil)
 	D3.Product(patron3.T(), patron3)
@@ -50,7 +50,7 @@ func Aprende() AlgoritmoStruct {
 	matriz4Fantastico := CrearMatriz4Fantasticos()
 	patron4 := crearPatron(matriz4Fantastico)
 
-	matPrint(patron4)
+	printMatrix(matriz4Fantastico)
 
 	D4 := mat.NewDense(100, 100, nil)
 	D4.Product(patron4.T(), patron4)
@@ -62,7 +62,7 @@ func Aprende() AlgoritmoStruct {
 	matrizSpiderman := CrearMatrizSpiderman()
 	patron5 := crearPatron(matrizSpiderman)
 
-	matPrint(patron5)
+	printMatrix(matrizSpiderman)
 
 	D5 := mat.NewDense(100, 100, nil)
 	D5.Product(patron5.T(), patron5)
@@ -74,7 +74,7 @@ func Aprende() AlgoritmoStruct {
 	matrizThor := CrearMatrizThor()
 	patron6 := crearPatron(matrizThor)
 
-	matPrint(patron6)
+	printMatrix(matrizThor)
 
 	D6 := mat.NewDense(100, 100, nil)
 	D6.Product(patron6.T(), patron6)
@@ -96,11 +96,11 @@ func Aprende() AlgoritmoStruct {
 
 	patronStructs := []PatronStruct{}
 	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D11})
-	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D22})
-	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D33})
-	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D44})
-	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D55})
-	patronStructs = append(patronStructs, PatronStruct{matrizLinterna, patron1, D66})
+	patronStructs = append(patronStructs, PatronStruct{matrizFlash, patron2, D22})
+	patronStructs = append(patronStructs, PatronStruct{matrizBatman, patron3, D33})
+	patronStructs = append(patronStructs, PatronStruct{matriz4Fantastico, patron4, D44})
+	patronStructs = append(patronStructs, PatronStruct{matrizSpiderman, patron5, D55})
+	patronStructs = append(patronStructs, PatronStruct{matrizThor, patron6, D66})
 
 	return AlgoritmoStruct{patronStructs, pesoTotal}
 }
@@ -129,6 +129,15 @@ func nuevaMatriz() [][]string {
 	matriz10x10Vacia := [][]string{}
 	for i := 0; i < 10; i++ {
 		row1 := []string{"", "", "", "", "", "", "", "", "", ""}
+		matriz10x10Vacia = append(matriz10x10Vacia, row1)
+	}
+	return matriz10x10Vacia
+}
+
+func matrizNoEncontrada() [][]string {
+	matriz10x10Vacia := [][]string{}
+	for i := 0; i < 10; i++ {
+		row1 := []string{"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"}
 		matriz10x10Vacia = append(matriz10x10Vacia, row1)
 	}
 	return matriz10x10Vacia
@@ -281,7 +290,7 @@ func testear(prueba mat.Matrix, algoStruct AlgoritmoStruct) [][]string {
 	}
 
 	fmt.Println("no existe ninguno - Fin :(!")
-	return nuevaMatriz()
+	return matrizNoEncontrada()
 }
 
 /*
@@ -325,4 +334,19 @@ func crearPrueba(formu formulario.Formulario) mat.Matrix {
 	rowTEst := crearRow(formu.Matriz)
 	A.SetRow(0, rowTEst)
 	return A
+}
+
+/*
+	printMatrix: printea matrices de 10 x 10
+*/
+func printMatrix(matrizLinterna [][]string) {
+	matrizLinternaAux := matrizLinterna
+	for i, row := range matrizLinternaAux {
+		for j, value := range row {
+			if value == "" {
+				matrizLinternaAux[i][j] = " "
+			}
+		}
+		fmt.Println(row)
+	}
 }
