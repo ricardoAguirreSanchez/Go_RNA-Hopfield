@@ -14,6 +14,8 @@ func Aprende() AlgoritmoStruct {
 	matrizLinterna := CrearMatrizLinterna()
 	patron1 := crearPatron(matrizLinterna)
 
+	matPrint(patron1)
+
 	D1 := mat.NewDense(100, 100, nil)
 	D1.Product(patron1.T(), patron1)
 
@@ -23,6 +25,8 @@ func Aprende() AlgoritmoStruct {
 	fmt.Println("------------Creamos patrones------------------")
 	matrizFlash := CrearMatrizFlash()
 	patron2 := crearPatron(matrizFlash)
+
+	matPrint(patron2)
 
 	D2 := mat.NewDense(100, 100, nil)
 	D2.Product(patron2.T(), patron2)
@@ -34,6 +38,8 @@ func Aprende() AlgoritmoStruct {
 	matrizBatman := CrearMatrizBatman()
 	patron3 := crearPatron(matrizBatman)
 
+	matPrint(patron3)
+
 	D3 := mat.NewDense(100, 100, nil)
 	D3.Product(patron3.T(), patron3)
 
@@ -43,6 +49,8 @@ func Aprende() AlgoritmoStruct {
 	fmt.Println("------------Creamos patrones------------------")
 	matriz4Fantastico := CrearMatriz4Fantasticos()
 	patron4 := crearPatron(matriz4Fantastico)
+
+	matPrint(patron4)
 
 	D4 := mat.NewDense(100, 100, nil)
 	D4.Product(patron4.T(), patron4)
@@ -54,6 +62,8 @@ func Aprende() AlgoritmoStruct {
 	matrizSpiderman := CrearMatrizSpiderman()
 	patron5 := crearPatron(matrizSpiderman)
 
+	matPrint(patron5)
+
 	D5 := mat.NewDense(100, 100, nil)
 	D5.Product(patron5.T(), patron5)
 
@@ -63,6 +73,8 @@ func Aprende() AlgoritmoStruct {
 	fmt.Println("------------Creamos patrones------------------")
 	matrizThor := CrearMatrizThor()
 	patron6 := crearPatron(matrizThor)
+
+	matPrint(patron6)
 
 	D6 := mat.NewDense(100, 100, nil)
 	D6.Product(patron6.T(), patron6)
