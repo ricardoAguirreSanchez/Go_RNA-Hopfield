@@ -25,7 +25,7 @@ func GetInput(c *gin.Context) Formulario {
 func nuevaMatriz() [][]string {
 	animals := [][]string{}
 	for i := 0; i < 10; i++ {
-		row1 := []string{"?", "¿", "?", "?", "¿", "?", "¿", "?", "¿", "?"}
+		row1 := []string{"", "", "", "", "", "", "", "", "", ""}
 		animals = append(animals, row1)
 	}
 	return animals
