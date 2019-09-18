@@ -9,7 +9,7 @@ import (
 
 func Aprende() *mat.Dense {
 
-	//creamos patrones
+	// creamos patrones
 	fmt.Println("------------CrearMatrizLinterna------------------")
 	matrizLinterna := CrearMatrizLinterna()
 	patron1 := crearPatron(matrizLinterna)
@@ -86,7 +86,7 @@ func Aprende() *mat.Dense {
 	pesoRed2 := mat.NewDense(100, 100, nil)
 	pesoRed2.Add(D11, D22)
 	pesoRed3 := mat.NewDense(100, 100, nil)
-	pesoRed3.Add(pesoRed2, D33)
+	pesoRed3.Add(D11, D33)
 	pesoRed4 := mat.NewDense(100, 100, nil)
 	pesoRed4.Add(pesoRed3, D44)
 	pesoRed5 := mat.NewDense(100, 100, nil)
@@ -107,7 +107,7 @@ func Aprende() *mat.Dense {
 	fmt.Println("patron6:")
 	matPrint(patron6)
 
-	return pesoTotal
+	return pesoRed5
 }
 
 func AplicoBusqueda(formularioInput formulario.Formulario, peso *mat.Dense) formulario.Formulario {
@@ -135,7 +135,7 @@ func AplicoBusqueda(formularioInput formulario.Formulario, peso *mat.Dense) form
 */
 func convertMatMatriz(pruebaAplicoFn *mat.Dense) [][]string {
 
-	resul := nuevaMatriz()
+	resul := NuevaMatriz()
 	for i := 0; i < 10; i++ {
 		for j := 0; j < 10; j++ {
 			posicion := j + i*10
@@ -154,7 +154,7 @@ func matPrint(X mat.Matrix) {
 	fmt.Printf("%v\n", fa)
 }
 
-func nuevaMatriz() [][]string {
+func NuevaMatriz() [][]string {
 	matriz10x10Vacia := [][]string{}
 	for i := 0; i < 10; i++ {
 		row1 := []string{"", "", "", "", "", "", "", "", "", ""}
