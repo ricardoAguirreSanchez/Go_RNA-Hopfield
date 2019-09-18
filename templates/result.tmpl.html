@@ -2,7 +2,7 @@
 <style>
   td input {
     width: 24px;
-    text-align: center;          
+    text-align: center;
   }
 
   * {
@@ -14,7 +14,6 @@
     float: left;
     width: 33.33%;
     padding: 10px;
-    height: 300px;
     /* Should be removed. Only for demonstration */
   }
 
@@ -28,11 +27,123 @@
 {{template "header.tmpl.html"}}
 
 <body>
-  {{template "nav1.tmpl.html"}}
-  {{template "nav2.tmpl.html"}}
-
   <form action="/">
     <div class="container">
+
+      <div class="row">
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Linterna Verde</th>
+            </tr>
+
+            {{ range $i, $fi := .FormularioBase1.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+
+          </table>
+        </div>
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Flash</th>
+            </tr>
+            {{ range $i, $fi := .FormularioBase2.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+          </table>
+        </div>
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Batman</th>
+            </tr>
+
+            {{ range $i, $fi := .FormularioBase3.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">4 Fantasticos</th>
+            </tr>
+
+            {{ range $i, $fi := .FormularioBase4.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+
+          </table>
+        </div>
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Spider-Man</th>
+            </tr>
+            {{ range $i, $fi := .FormularioBase5.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+          </table>
+        </div>
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Thor</th>
+            </tr>
+
+            {{ range $i, $fi := .FormularioBase6.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+
+          </table>
+        </div>
+      </div>
+
       <div class="row">
         <div class="column">
           <table>
@@ -40,12 +151,15 @@
               <th colspan="10">Ingrese la imagen a reconocer</th>
             </tr>
 
-            {{ range $fi := .FormularioInput.Matriz }}
+            {{ range $i, $fi := .FormularioInput.Matriz }}
             <tr>
-              {{ range $value := $fi}}
-              <td><input name="00" type="text" value="{{$value}}"/></td>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+
+              <td><input disable name="{{$name}}" type="text" value="{{$value}}" /></td>
               {{ end }}
-              </tr>
+            </tr>
             {{ end }}
 
           </table>
@@ -58,13 +172,13 @@
             {{ range $fi := .FormularioOutput.Matriz }}
             <tr>
               {{ range $value := $fi}}
-              <td><input disabled name="00" type="text" value="{{$value}}"/></td>
+              <td><input disabled name="00" type="text" value="{{$value}}" /></td>
               {{ end }}
-              </tr>
+            </tr>
             {{ end }}
           </table>
           <div>
-              <input type="submit" value="volver"></div>
+            <input type="submit" value="volver"></div>
         </div>
       </div>
 

@@ -1,21 +1,27 @@
 package algoritmo
 
 /*
-	CrearMatrizLinterna: crea la matriz 10x10 para linterna verde
+	CrearMatrizLinterna: crea la matriz 16x16 para linterna verde
 */
 func CrearMatrizLinterna() [][]string {
 
-	matriz10x10 := [][]string{}
-	row1 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
-	row2 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
-	row3 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row4 := []string{"", "", "", "*", "", "", "*", "", "", ""}
-	row5 := []string{"", "", "*", "", "", "", "", "*", "", ""}
-	row6 := []string{"", "", "*", "", "", "", "", "*", "", ""}
-	row7 := []string{"", "", "", "*", "", "", "*", "", "", ""}
-	row8 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row9 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
-	row10 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
+	matriz16x16 := [][]string{}
+	row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row2 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row3 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row4 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row5 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row6 := []string{"", "", "", "", "*", "*", "*", "*", "*", "*", "*", "*", "", "", "", ""}
+	row7 := []string{"", "", "", "", "*", "*", "*", "*", "*", "*", "*", "*", "", "", "", ""}
+	row8 := []string{"", "", "", "", "", "", "*", "*", "*", "*", "", "", "", "", "", ""}
+	row9 := []string{"", "", "", "", "", "*", "", "", "", "", "*", "", "", "", "", ""}
+	row10 := []string{"", "", "", "", "*", "", "", "*", "*", "", "", "*", "", "", "", ""}
+	row11 := []string{"", "", "", "", "*", "", "*", "", "", "*", "", "*", "", "", "", ""}
+	row12 := []string{"", "", "", "", "*", "", "", "*", "*", "", "", "*", "", "", "", ""}
+	row13 := []string{"", "", "", "", "", "*", "", "", "", "", "*", "", "", "", "", ""}
+	row14 := []string{"", "", "", "", "", "", "*", "*", "*", "*", "", "", "", "", "", ""}
+	row15 := []string{"", "", "", "", "*", "*", "*", "*", "*", "*", "*", "*", "", "", "", ""}
+	row16 := []string{"", "", "", "", "*", "*", "*", "*", "*", "*", "*", "*", "", "", "", ""}
 
 	// row1 := []string{"*", "*", "", "", "", "", "", "", "", ""}
 	// row2 := []string{"*", "*", "", "", "", "", "", "", "", ""}
@@ -28,17 +34,23 @@ func CrearMatrizLinterna() [][]string {
 	// row9 := []string{"*", "*", "", "", "", "", "", "", "", ""}
 	// row10 := []string{"*", "*", "", "", "", "", "", "", "", ""}
 
-	matriz10x10 = append(matriz10x10, row1)
-	matriz10x10 = append(matriz10x10, row2)
-	matriz10x10 = append(matriz10x10, row3)
-	matriz10x10 = append(matriz10x10, row4)
-	matriz10x10 = append(matriz10x10, row5)
-	matriz10x10 = append(matriz10x10, row6)
-	matriz10x10 = append(matriz10x10, row7)
-	matriz10x10 = append(matriz10x10, row8)
-	matriz10x10 = append(matriz10x10, row9)
-	matriz10x10 = append(matriz10x10, row10)
-	return matriz10x10
+	matriz16x16 = append(matriz16x16, row1)
+	matriz16x16 = append(matriz16x16, row2)
+	matriz16x16 = append(matriz16x16, row3)
+	matriz16x16 = append(matriz16x16, row4)
+	matriz16x16 = append(matriz16x16, row5)
+	matriz16x16 = append(matriz16x16, row6)
+	matriz16x16 = append(matriz16x16, row7)
+	matriz16x16 = append(matriz16x16, row8)
+	matriz16x16 = append(matriz16x16, row9)
+	matriz16x16 = append(matriz16x16, row10)
+	matriz16x16 = append(matriz16x16, row11)
+	matriz16x16 = append(matriz16x16, row12)
+	matriz16x16 = append(matriz16x16, row13)
+	matriz16x16 = append(matriz16x16, row14)
+	matriz16x16 = append(matriz16x16, row15)
+	matriz16x16 = append(matriz16x16, row16)
+	return matriz16x16
 }
 
 /*
@@ -46,40 +58,74 @@ func CrearMatrizLinterna() [][]string {
 */
 func CrearMatrizFlash() [][]string {
 
-	matriz10x10 := [][]string{}
-	// row1 := []string{"", "", "", "", "", "", "*", "*", "", ""}
-	// row2 := []string{"", "", "", "", "", "*", "*", "", "", ""}
+	matriz16x16 := [][]string{}
+	// row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	// row2 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	// row3 := []string{"", "", "", "", "", "", "", "", "*", "", "", "", "", "", "", ""}
+
+	// row4 := []string{"", "", "", "", "", "", "", "*", "*", "", "", "", "", "", "", ""}
+
+	// row5 := []string{"", "", "", "", "", "", "*", "*", "", "", "", "", "", "", "", ""}
+	// row6 := []string{"", "", "", "", "", "*", "", "*", "", "", "", "", "", "", "", ""}
+
+	// row7 := []string{"", "", "", "", "*", "", "*", "*", "*", "*", "*", "*", "*", "", "", ""}
+
+	// row8 := []string{"", "", "", "*", "", "", "", "", "", "", "", "*", "", "", "", ""}
+	// row9 := []string{"", "", "*", "*", "*", "*", "*", "*", "*", "", "*", "", "", "", "", ""}
+	// row10 := []string{"", "", "", "", "", "", "", "", "*", "", "*", "", "", "", "", "", ""}
+	// row11 := []string{"", "", "", "", "", "", "", "*", "", "*", "", "", "", "", "", "", ""}
+	// row12 := []string{"", "", "", "", "", "", "", "*", "*", "", "", "", "", "", "", "", ""}
+
+	// row13 := []string{"", "", "", "", "", "*", "*", "", "", "", "", "", "", "", "", ""}
+	// row14 := []string{"", "", "", "", "*", "*", "", "", "", "", "", "", "", "", "", ""}
+	// row15 := []string{"", "", "", "", "*", "", "", "", "", "", "", "", "", "", "", ""}
+	// row16 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+
+	row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row2 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row3 := []string{"", "", "", "", "*", "", "", "", "", "", "", "", "", "", "", ""}
+	row4 := []string{"", "", "", "*", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row5 := []string{"", "", "*", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row6 := []string{"", "*", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row7 := []string{"*", "*", "*", "*", "*", "", "", "", "", "", "", "", "", "", "", ""}
+	row8 := []string{"", "", "", "*", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row9 := []string{"", "", "*", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row10 := []string{"", "*", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row11 := []string{"*", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row12 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row13 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row14 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row15 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row16 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+
+	// row1 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
+	// row2 := []string{"", "", "", "*", "*", "*", "*", "", "", ""}
 	// row3 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	// row4 := []string{"", "", "", "*", "*", "*", "", "", "", ""}
-	// row5 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
-	// row6 := []string{"", "", "", "", "*", "*", "*", "", "", ""}
-	// row7 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	// row8 := []string{"", "", "", "*", "*", "", "", "", "", ""}
-	// row9 := []string{"", "", "*", "*", "", "", "", "", "", ""}
+	// row4 := []string{"", "", "", "", "", "*", "", "", "", ""}
+	// row5 := []string{"", "", "", "", "", "", "", "", "", ""}
+	// row6 := []string{"", "", "", "", "", "", "", "", "", ""}
+	// row7 := []string{"", "", "", "", "", "", "", "", "", ""}
+	// row8 := []string{"", "", "", "", "", "", "", "", "", ""}
+	// row9 := []string{"", "", "", "", "", "", "", "", "", ""}
 	// row10 := []string{"", "", "", "", "", "", "", "", "", ""}
 
-	row1 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
-	row2 := []string{"", "", "", "*", "*", "*", "*", "", "", ""}
-	row3 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row4 := []string{"", "", "", "", "", "*", "", "", "", ""}
-	row5 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row6 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row7 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row8 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row9 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row10 := []string{"", "", "", "", "", "", "", "", "", ""}
-
-	matriz10x10 = append(matriz10x10, row1)
-	matriz10x10 = append(matriz10x10, row2)
-	matriz10x10 = append(matriz10x10, row3)
-	matriz10x10 = append(matriz10x10, row4)
-	matriz10x10 = append(matriz10x10, row5)
-	matriz10x10 = append(matriz10x10, row6)
-	matriz10x10 = append(matriz10x10, row7)
-	matriz10x10 = append(matriz10x10, row8)
-	matriz10x10 = append(matriz10x10, row9)
-	matriz10x10 = append(matriz10x10, row10)
-	return matriz10x10
+	matriz16x16 = append(matriz16x16, row1)
+	matriz16x16 = append(matriz16x16, row2)
+	matriz16x16 = append(matriz16x16, row3)
+	matriz16x16 = append(matriz16x16, row4)
+	matriz16x16 = append(matriz16x16, row5)
+	matriz16x16 = append(matriz16x16, row6)
+	matriz16x16 = append(matriz16x16, row7)
+	matriz16x16 = append(matriz16x16, row8)
+	matriz16x16 = append(matriz16x16, row9)
+	matriz16x16 = append(matriz16x16, row10)
+	matriz16x16 = append(matriz16x16, row11)
+	matriz16x16 = append(matriz16x16, row12)
+	matriz16x16 = append(matriz16x16, row13)
+	matriz16x16 = append(matriz16x16, row14)
+	matriz16x16 = append(matriz16x16, row15)
+	matriz16x16 = append(matriz16x16, row16)
+	return matriz16x16
 }
 
 /*
@@ -87,18 +133,23 @@ func CrearMatrizFlash() [][]string {
 */
 func CrearMatrizBatman() [][]string {
 
-	matriz10x10 := [][]string{}
-	row1 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row2 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row3 := []string{"", "", "*", "", "*", "*", "", "*", "", ""}
-	row4 := []string{"", "*", "", "", "*", "*", "", "", "*", ""}
-	row5 := []string{"*", "*", "*", "*", "*", "*", "*", "*", "*", "*"}
-	row6 := []string{"*", "", "*", "", "*", "*", "", "*", "", "*"}
-	row7 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row8 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row9 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row10 := []string{"", "", "", "", "", "", "", "", "", ""}
-
+	matriz16x16 := [][]string{}
+	row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row2 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row3 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row4 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row5 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row6 := []string{"", "", "*", "*", "", "", "*", "", "*", "", "", "*", "*", "", "", ""}
+	row7 := []string{"", "*", "*", "*", "", "", "*", "*", "*", "", "", "*", "*", "*", "", ""}
+	row8 := []string{"*", "", "", "", "*", "*", "", "", "", "*", "*", "", "", "", "*", ""}
+	row9 := []string{"*", "", "", "", "", "", "", "", "", "", "", "", "", "", "*", ""}
+	row10 := []string{"*", "", "", "", "", "", "", "", "", "", "", "", "", "", "*", ""}
+	row11 := []string{"*", "", "", "*", "*", "*", "", "", "", "*", "*", "*", "", "", "", ""}
+	row12 := []string{"", "*", "*", "", "*", "", "*", "*", "*", "", "*", "", "*", "*", "", ""}
+	row13 := []string{"", "", "*", "", "", "", "", "", "", "", "", "", "*", "", "", ""}
+	row14 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row15 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row16 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 	// row1 := []string{"*", "", "", "", "", "", "", "", "", "*"}
 	// row2 := []string{"", "*", "", "", "", "", "", "", "*", ""}
 	// row3 := []string{"", "", "*", "", "", "", "", "*", "", ""}
@@ -110,17 +161,24 @@ func CrearMatrizBatman() [][]string {
 	// row9 := []string{"", "*", "", "", "", "", "", "", "*", ""}
 	// row10 := []string{"*", "", "", "", "", "", "", "", "", "*"}
 
-	matriz10x10 = append(matriz10x10, row1)
-	matriz10x10 = append(matriz10x10, row2)
-	matriz10x10 = append(matriz10x10, row3)
-	matriz10x10 = append(matriz10x10, row4)
-	matriz10x10 = append(matriz10x10, row5)
-	matriz10x10 = append(matriz10x10, row6)
-	matriz10x10 = append(matriz10x10, row7)
-	matriz10x10 = append(matriz10x10, row8)
-	matriz10x10 = append(matriz10x10, row9)
-	matriz10x10 = append(matriz10x10, row10)
-	return matriz10x10
+	matriz16x16 = append(matriz16x16, row1)
+	matriz16x16 = append(matriz16x16, row2)
+	matriz16x16 = append(matriz16x16, row3)
+	matriz16x16 = append(matriz16x16, row4)
+	matriz16x16 = append(matriz16x16, row5)
+	matriz16x16 = append(matriz16x16, row6)
+	matriz16x16 = append(matriz16x16, row7)
+	matriz16x16 = append(matriz16x16, row8)
+	matriz16x16 = append(matriz16x16, row9)
+	matriz16x16 = append(matriz16x16, row10)
+	matriz16x16 = append(matriz16x16, row11)
+	matriz16x16 = append(matriz16x16, row12)
+	matriz16x16 = append(matriz16x16, row13)
+	matriz16x16 = append(matriz16x16, row14)
+	matriz16x16 = append(matriz16x16, row15)
+	matriz16x16 = append(matriz16x16, row16)
+
+	return matriz16x16
 }
 
 /*
@@ -128,17 +186,23 @@ func CrearMatrizBatman() [][]string {
 */
 func CrearMatriz4Fantasticos() [][]string {
 
-	matriz10x10 := [][]string{}
-	row1 := []string{"", "", "", "", "", "", "", "", "*", ""}
-	row2 := []string{"", "", "", "", "", "", "", "", "*", ""}
-	row3 := []string{"", "", "", "", "", "", "", "*", "*", ""}
-	row4 := []string{"", "", "", "", "", "", "*", "", "*", ""}
-	row5 := []string{"", "", "", "", "", "*", "", "", "*", ""}
-	row6 := []string{"", "", "", "", "*", "", "", "", "*", ""}
-	row7 := []string{"", "", "", "*", "*", "*", "*", "*", "*", "*"}
-	row8 := []string{"", "", "", "", "", "", "", "", "*", ""}
-	row9 := []string{"", "", "", "", "", "", "", "", "*", ""}
-	row10 := []string{"", "", "", "", "", "", "", "", "*", ""}
+	matriz16x16 := [][]string{}
+	row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row2 := []string{"", "", "", "", "", "", "", "", "", "*", "*", "*", "", "", "", ""}
+	row3 := []string{"", "", "", "", "", "", "", "", "*", "", "", "*", "", "", "", ""}
+	row4 := []string{"", "", "", "", "", "", "", "*", "", "", "", "*", "", "", "", ""}
+	row5 := []string{"", "", "", "", "", "", "*", "", "*", "", "", "*", "", "", "", ""}
+	row6 := []string{"", "", "", "", "", "*", "", "*", "*", "", "", "*", "", "", "", ""}
+	row7 := []string{"", "", "", "", "*", "", "*", "*", "*", "", "", "*", "*", "", "", ""}
+	row8 := []string{"", "", "", "", "*", "", "", "", "", "", "", "", "*", "", "", ""}
+	row9 := []string{"", "", "", "", "*", "*", "*", "*", "*", "*", "", "*", "*", "", "", ""}
+	row10 := []string{"", "", "", "", "", "", "", "", "", "*", "", "*", "", "", "", ""}
+	row11 := []string{"", "", "", "", "", "", "", "", "", "*", "", "*", "", "", "", ""}
+	row12 := []string{"", "", "", "", "", "", "", "", "", "*", "*", "*", "", "", "", ""}
+	row13 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row14 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row15 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row16 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 
 	// row1 := []string{"", "", "", "", "*", "*", "", "", "", ""}
 	// row2 := []string{"", "", "", "*", "", "", "*", "", "", ""}
@@ -151,32 +215,62 @@ func CrearMatriz4Fantasticos() [][]string {
 	// row9 := []string{"", "", "", "*", "", "", "*", "", "", ""}
 	// row10 := []string{"", "", "", "", "*", "*", "", "", "", ""}
 
-	matriz10x10 = append(matriz10x10, row1)
-	matriz10x10 = append(matriz10x10, row2)
-	matriz10x10 = append(matriz10x10, row3)
-	matriz10x10 = append(matriz10x10, row4)
-	matriz10x10 = append(matriz10x10, row5)
-	matriz10x10 = append(matriz10x10, row6)
-	matriz10x10 = append(matriz10x10, row7)
-	matriz10x10 = append(matriz10x10, row8)
-	matriz10x10 = append(matriz10x10, row9)
-	matriz10x10 = append(matriz10x10, row10)
-	return matriz10x10
+	matriz16x16 = append(matriz16x16, row1)
+	matriz16x16 = append(matriz16x16, row2)
+	matriz16x16 = append(matriz16x16, row3)
+	matriz16x16 = append(matriz16x16, row4)
+	matriz16x16 = append(matriz16x16, row5)
+	matriz16x16 = append(matriz16x16, row6)
+	matriz16x16 = append(matriz16x16, row7)
+	matriz16x16 = append(matriz16x16, row8)
+	matriz16x16 = append(matriz16x16, row9)
+	matriz16x16 = append(matriz16x16, row10)
+	matriz16x16 = append(matriz16x16, row11)
+	matriz16x16 = append(matriz16x16, row12)
+	matriz16x16 = append(matriz16x16, row13)
+	matriz16x16 = append(matriz16x16, row14)
+	matriz16x16 = append(matriz16x16, row15)
+	matriz16x16 = append(matriz16x16, row16)
+
+	return matriz16x16
 }
 
 func CrearMatrizSpiderman() [][]string {
 
-	matriz10x10 := [][]string{}
-	row1 := []string{"", "", "", "*", "", "", "*", "", "", ""}
-	row2 := []string{"", "*", "", "*", "", "", "*", "", "*", ""}
-	row3 := []string{"", "*", "", "", "*", "*", "", "", "*", ""}
-	row4 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
-	row5 := []string{"", "", "", "", "*", "*", "", "", "", ""}
-	row6 := []string{"", "", "*", "*", "*", "*", "*", "*", "", ""}
-	row7 := []string{"", "*", "", "*", "", "", "*", "", "*", ""}
-	row8 := []string{"", "*", "", "*", "", "", "*", "", "*", ""}
-	row9 := []string{"", "*", "", "*", "", "", "*", "", "*", ""}
-	row10 := []string{"", "", "", "*", "", "", "*", "", "", ""}
+	matriz16x16 := [][]string{}
+	// row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	// row2 := []string{"", "", "", "", "*", "", "*", "", "", "*", "", "*", "", "", "", ""}
+	// row3 := []string{"", "", "", "*", "", "*", "", "", "", "", "*", "", "*", "", "", ""}
+	// row4 := []string{"", "", "", "*", "", "*", "*", "*", "*", "*", "*", "", "*", "", "", ""}
+	// row5 := []string{"", "", "", "", "*", "*", "*", "*", "*", "*", "*", "*", "", "", "", ""}
+	// row6 := []string{"", "", "", "", "", "", "", "*", "*", "", "", "", "", "", "", ""}
+	// row7 := []string{"", "", "", "", "", "*", "*", "*", "*", "*", "*", "", "", "", "", ""}
+	// row8 := []string{"", "", "", "", "*", "", "", "*", "*", "", "", "*", "", "", "", ""}
+	// row9 := []string{"", "", "", "*", "", "", "*", "*", "*", "*", "", "", "*", "", "", ""}
+	// row10 := []string{"", "", "*", "", "", "*", "", "", "", "", "*", "", "", "*", "", ""}
+	// row11 := []string{"", "", "*", "", "", "*", "", "", "", "", "*", "", "", "*", "", ""}
+	// row12 := []string{"", "", "*", "", "", "*", "", "", "", "", "*", "", "", "*", "", ""}
+	// row13 := []string{"", "", "*", "", "", "*", "", "", "", "", "*", "", "", "*", "", ""}
+	// row14 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	// row15 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	// row16 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+
+	row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row2 := []string{"", "", "", "", "", "*", "", "", "", "", "*", "", "", "", "", ""}
+	row3 := []string{"", "", "", "", "*", "", "*", "", "", "*", "", "*", "", "", "", ""}
+	row4 := []string{"", "", "", "", "", "*", "", "*", "*", "", "*", "", "", "", "", ""}
+	row5 := []string{"", "", "", "", "", "", "*", "*", "*", "*", "", "", "", "", "", ""}
+	row6 := []string{"", "", "", "", "", "", "", "*", "*", "", "", "", "", "", "", ""}
+	row7 := []string{"", "", "", "", "", "", "", "*", "*", "", "", "", "", "", "", ""}
+	row8 := []string{"", "", "", "", "", "", "*", "*", "*", "*", "", "", "", "", "", ""}
+	row9 := []string{"", "", "", "", "", "*", "", "*", "*", "", "*", "", "", "", "", ""}
+	row10 := []string{"", "", "", "", "*", "", "*", "", "", "*", "", "*", "", "", "", ""}
+	row11 := []string{"", "", "", "", "*", "", "*", "", "", "*", "", "*", "", "", "", ""}
+	row12 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row13 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row14 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row15 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row16 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 
 	// row1 := []string{"", "", "", "", "*", "", "", "", "", ""}
 	// row2 := []string{"", "", "", "*", "*", "", "", "", "", ""}
@@ -189,53 +283,83 @@ func CrearMatrizSpiderman() [][]string {
 	// row9 := []string{"", "", "", "", "*", "", "", "", "", ""}
 	// row10 := []string{"", "", "", "", "", "", "", "", "", ""}
 
-	matriz10x10 = append(matriz10x10, row1)
-	matriz10x10 = append(matriz10x10, row2)
-	matriz10x10 = append(matriz10x10, row3)
-	matriz10x10 = append(matriz10x10, row4)
-	matriz10x10 = append(matriz10x10, row5)
-	matriz10x10 = append(matriz10x10, row6)
-	matriz10x10 = append(matriz10x10, row7)
-	matriz10x10 = append(matriz10x10, row8)
-	matriz10x10 = append(matriz10x10, row9)
-	matriz10x10 = append(matriz10x10, row10)
-	return matriz10x10
+	matriz16x16 = append(matriz16x16, row1)
+	matriz16x16 = append(matriz16x16, row2)
+	matriz16x16 = append(matriz16x16, row3)
+	matriz16x16 = append(matriz16x16, row4)
+	matriz16x16 = append(matriz16x16, row5)
+	matriz16x16 = append(matriz16x16, row6)
+	matriz16x16 = append(matriz16x16, row7)
+	matriz16x16 = append(matriz16x16, row8)
+	matriz16x16 = append(matriz16x16, row9)
+	matriz16x16 = append(matriz16x16, row10)
+	matriz16x16 = append(matriz16x16, row11)
+	matriz16x16 = append(matriz16x16, row12)
+	matriz16x16 = append(matriz16x16, row13)
+	matriz16x16 = append(matriz16x16, row14)
+	matriz16x16 = append(matriz16x16, row15)
+	matriz16x16 = append(matriz16x16, row16)
+
+	return matriz16x16
 }
 
 func CrearMatrizThor() [][]string {
 
-	matriz10x10 := [][]string{}
+	matriz16x16 := [][]string{}
+	row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row2 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+
+	row3 := []string{"", "", "", "", "", "", "", "", "*", "*", "", "", "", "", "", ""}
+	row4 := []string{"", "", "", "", "", "", "", "*", "", "", "*", "", "", "", "", ""}
+
+	row5 := []string{"", "", "", "", "", "", "*", "", "", "", "", "*", "", "", "", ""}
+
+	row6 := []string{"", "", "", "", "", "", "*", "", "", "", "", "", "*", "", "", ""}
+
+	row7 := []string{"", "", "", "", "", "", "", "*", "", "", "", "", "", "*", "", ""}
+
+	row8 := []string{"", "", "", "", "", "", "", "*", "*", "", "", "", "", "", "*", ""}
+
+	row9 := []string{"", "", "", "", "", "", "*", "*", "*", "*", "", "", "", "", "*", ""}
+
+	row10 := []string{"", "", "", "", "", "*", "*", "*", "", "", "*", "", "", "*", "", ""}
+
+	row11 := []string{"", "", "", "", "*", "*", "*", "", "", "", "", "*", "*", "", "", ""}
+
+	row12 := []string{"", "", "", "*", "*", "*", "", "", "", "", "", "", "", "", "", ""}
+	row13 := []string{"", "", "", "*", "*", "", "", "", "", "", "", "", "", "", "", ""}
+	row14 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+
+	row15 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	row16 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+
 	// row1 := []string{"", "", "", "", "", "", "", "", "", ""}
-	// row2 := []string{"", "", "*", "*", "", "", "", "", "", ""}
-	// row3 := []string{"*", "*", "*", "*", "*", "*", "", "", "", ""}
-	// row4 := []string{"*", "*", "*", "*", "*", "*", "", "", "", ""}
-	// row5 := []string{"*", "*", "*", "*", "*", "*", "", "", "", ""}
-	// row6 := []string{"", "", "*", "*", "", "", "", "", "", ""}
-	// row7 := []string{"", "", "*", "*", "", "", "", "", "", ""}
-	// row8 := []string{"", "", "*", "*", "", "", "", "", "", ""}
-	// row9 := []string{"", "", "*", "*", "", "", "", "", "", ""}
+	// row2 := []string{"", "", "", "", "", "", "", "*", "", ""}
+	// row3 := []string{"", "", "", "", "", "", "", "*", "", ""}
+	// row4 := []string{"", "", "", "", "", "", "", "*", "", ""}
+	// row5 := []string{"", "", "", "", "", "*", "*", "*", "*", "*"}
+	// row6 := []string{"", "", "", "", "", "", "", "*", "", ""}
+	// row7 := []string{"", "", "", "", "", "", "", "*", "", ""}
+	// row8 := []string{"", "", "", "", "", "", "", "", "", ""}
+	// row9 := []string{"", "", "", "", "", "", "", "", "", ""}
 	// row10 := []string{"", "", "", "", "", "", "", "", "", ""}
 
-	row1 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row2 := []string{"", "", "", "", "", "", "", "*", "", ""}
-	row3 := []string{"", "", "", "", "", "", "", "*", "", ""}
-	row4 := []string{"", "", "", "", "", "", "", "*", "", ""}
-	row5 := []string{"", "", "", "", "", "*", "*", "*", "*", "*"}
-	row6 := []string{"", "", "", "", "", "", "", "*", "", ""}
-	row7 := []string{"", "", "", "", "", "", "", "*", "", ""}
-	row8 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row9 := []string{"", "", "", "", "", "", "", "", "", ""}
-	row10 := []string{"", "", "", "", "", "", "", "", "", ""}
+	matriz16x16 = append(matriz16x16, row1)
+	matriz16x16 = append(matriz16x16, row2)
+	matriz16x16 = append(matriz16x16, row3)
+	matriz16x16 = append(matriz16x16, row4)
+	matriz16x16 = append(matriz16x16, row5)
+	matriz16x16 = append(matriz16x16, row6)
+	matriz16x16 = append(matriz16x16, row7)
+	matriz16x16 = append(matriz16x16, row8)
+	matriz16x16 = append(matriz16x16, row9)
+	matriz16x16 = append(matriz16x16, row10)
+	matriz16x16 = append(matriz16x16, row11)
+	matriz16x16 = append(matriz16x16, row12)
+	matriz16x16 = append(matriz16x16, row13)
+	matriz16x16 = append(matriz16x16, row14)
+	matriz16x16 = append(matriz16x16, row15)
+	matriz16x16 = append(matriz16x16, row16)
 
-	matriz10x10 = append(matriz10x10, row1)
-	matriz10x10 = append(matriz10x10, row2)
-	matriz10x10 = append(matriz10x10, row3)
-	matriz10x10 = append(matriz10x10, row4)
-	matriz10x10 = append(matriz10x10, row5)
-	matriz10x10 = append(matriz10x10, row6)
-	matriz10x10 = append(matriz10x10, row7)
-	matriz10x10 = append(matriz10x10, row8)
-	matriz10x10 = append(matriz10x10, row9)
-	matriz10x10 = append(matriz10x10, row10)
-	return matriz10x10
+	return matriz16x16
 }

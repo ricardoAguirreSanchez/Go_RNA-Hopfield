@@ -16,10 +16,10 @@ func Aprende() *mat.Dense {
 
 	PrintMatrix(matrizLinterna)
 
-	D1 := mat.NewDense(100, 100, nil)
+	D1 := mat.NewDense(256, 256, nil)
 	D1.Product(patron1.T(), patron1)
 
-	D11 := mat.NewDense(100, 100, nil)
+	D11 := mat.NewDense(256, 256, nil)
 	D11.Apply(diagonalEnCeros, D1)
 
 	fmt.Println("------------CrearMatrizFlash------------------")
@@ -28,10 +28,10 @@ func Aprende() *mat.Dense {
 
 	PrintMatrix(matrizFlash)
 
-	D2 := mat.NewDense(100, 100, nil)
+	D2 := mat.NewDense(256, 256, nil)
 	D2.Product(patron2.T(), patron2)
 
-	D22 := mat.NewDense(100, 100, nil)
+	D22 := mat.NewDense(256, 256, nil)
 	D22.Apply(diagonalEnCeros, D2)
 
 	fmt.Println("------------CrearMatrizBatman------------------")
@@ -40,10 +40,10 @@ func Aprende() *mat.Dense {
 
 	PrintMatrix(matrizBatman)
 
-	D3 := mat.NewDense(100, 100, nil)
+	D3 := mat.NewDense(256, 256, nil)
 	D3.Product(patron3.T(), patron3)
 
-	D33 := mat.NewDense(100, 100, nil)
+	D33 := mat.NewDense(256, 256, nil)
 	D33.Apply(diagonalEnCeros, D3)
 
 	fmt.Println("------------CrearMatriz4Fantasticos------------------")
@@ -52,10 +52,10 @@ func Aprende() *mat.Dense {
 
 	PrintMatrix(matriz4Fantastico)
 
-	D4 := mat.NewDense(100, 100, nil)
+	D4 := mat.NewDense(256, 256, nil)
 	D4.Product(patron4.T(), patron4)
 
-	D44 := mat.NewDense(100, 100, nil)
+	D44 := mat.NewDense(256, 256, nil)
 	D44.Apply(diagonalEnCeros, D4)
 
 	fmt.Println("------------CrearMatrizSpiderman------------------")
@@ -64,10 +64,10 @@ func Aprende() *mat.Dense {
 
 	PrintMatrix(matrizSpiderman)
 
-	D5 := mat.NewDense(100, 100, nil)
+	D5 := mat.NewDense(256, 256, nil)
 	D5.Product(patron5.T(), patron5)
 
-	D55 := mat.NewDense(100, 100, nil)
+	D55 := mat.NewDense(256, 256, nil)
 	D55.Apply(diagonalEnCeros, D5)
 
 	fmt.Println("------------CrearMatrizThor------------------")
@@ -76,22 +76,22 @@ func Aprende() *mat.Dense {
 
 	PrintMatrix(matrizThor)
 
-	D6 := mat.NewDense(100, 100, nil)
+	D6 := mat.NewDense(256, 256, nil)
 	D6.Product(patron6.T(), patron6)
 
-	D66 := mat.NewDense(100, 100, nil)
+	D66 := mat.NewDense(256, 256, nil)
 	D66.Apply(diagonalEnCeros, D6)
 
 	fmt.Println("------------Calculamos el peso------------------")
-	pesoRed2 := mat.NewDense(100, 100, nil)
+	pesoRed2 := mat.NewDense(256, 256, nil)
 	pesoRed2.Add(D11, D22)
-	pesoRed3 := mat.NewDense(100, 100, nil)
+	pesoRed3 := mat.NewDense(256, 256, nil)
 	pesoRed3.Add(pesoRed2, D33)
-	pesoRed4 := mat.NewDense(100, 100, nil)
+	pesoRed4 := mat.NewDense(256, 256, nil)
 	pesoRed4.Add(pesoRed3, D44)
-	pesoRed5 := mat.NewDense(100, 100, nil)
+	pesoRed5 := mat.NewDense(256, 256, nil)
 	pesoRed5.Add(pesoRed4, D55)
-	pesoTotal := mat.NewDense(100, 100, nil)
+	pesoTotal := mat.NewDense(256, 256, nil)
 	pesoTotal.Add(pesoRed5, D66)
 
 	fmt.Println("patron1:")
@@ -135,10 +135,10 @@ func AplicoBusqueda(formularioInput formulario.Formulario, peso *mat.Dense) form
 */
 func convertMatMatriz(pruebaAplicoFn *mat.Dense) [][]string {
 
-	resul := nuevaMatriz()
-	for i := 0; i < 10; i++ {
-		for j := 0; j < 10; j++ {
-			posicion := j + i*10
+	resul := NuevaMatriz()
+	for i := 0; i < 16; i++ {
+		for j := 0; j < 16; j++ {
+			posicion := j + i*16
 			if int(pruebaAplicoFn.At(0, posicion)) == 1 {
 				resul[i][j] = "*"
 			} else {
@@ -154,19 +154,19 @@ func matPrint(X mat.Matrix) {
 	fmt.Printf("%v\n", fa)
 }
 
-func nuevaMatriz() [][]string {
-	matriz10x10Vacia := [][]string{}
-	for i := 0; i < 10; i++ {
-		row1 := []string{"", "", "", "", "", "", "", "", "", ""}
-		matriz10x10Vacia = append(matriz10x10Vacia, row1)
+func NuevaMatriz() [][]string {
+	matriz16x16Vacia := [][]string{}
+	for i := 0; i < 16; i++ {
+		row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+		matriz16x16Vacia = append(matriz16x16Vacia, row1)
 	}
-	return matriz10x10Vacia
+	return matriz16x16Vacia
 }
 
 func matrizNoEncontrada() [][]string {
 	matriz10x10Vacia := [][]string{}
-	for i := 0; i < 10; i++ {
-		row1 := []string{"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"}
+	for i := 0; i < 16; i++ {
+		row1 := []string{"?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?"}
 		matriz10x10Vacia = append(matriz10x10Vacia, row1)
 	}
 	return matriz10x10Vacia
@@ -190,12 +190,12 @@ func crearRow(matriz [][]string) []float64 {
 }
 
 /*
-	crearPatron:devuelve la row correspondiente a la matriz 10 x 10
+	crearPatron:devuelve la row correspondiente a la matriz 16 x 16
 */
-func crearPatron(matriz10x10 [][]string) mat.Matrix {
+func crearPatron(matriz16x16 [][]string) mat.Matrix {
 
-	A := mat.NewDense(1, 100, nil)
-	rowTEst := crearRow(matriz10x10)
+	A := mat.NewDense(1, 256, nil)
+	rowTEst := crearRow(matriz16x16)
 	A.SetRow(0, rowTEst)
 	return A
 }
@@ -219,30 +219,30 @@ func Fn(i, j int, v float64) float64 {
 }
 
 /*
-	testear: devuelve la matriz de 10x10 que mejor lo cumple
+	testear: devuelve la matriz de 16x16 que mejor lo cumple
 */
 func testear(prueba mat.Matrix, peso *mat.Dense) *mat.Dense {
 	limite := 1
 
 	var contadorEstable int
 
-	pruebaPorPeso1 := mat.NewDense(1, 100, nil)
+	pruebaPorPeso1 := mat.NewDense(1, 256, nil)
 	pruebaPorPeso1.Product(prueba, peso)
 
-	pruebaPorPesoFn1 := mat.NewDense(1, 100, nil)
+	pruebaPorPesoFn1 := mat.NewDense(1, 256, nil)
 	pruebaPorPesoFn1.Apply(Fn, pruebaPorPeso1)
 
-	pruebaAplicoFnEstable := mat.NewDense(1, 100, nil)
+	pruebaAplicoFnEstable := mat.NewDense(1, 256, nil)
 	pruebaAplicoFnEstable = pruebaPorPesoFn1
 	comodin := pruebaPorPesoFn1
 	contadorEstable = 0
 
 	for limite <= 9 {
 		fmt.Println("Iteracion: ", limite)
-		pruebaPorPeso := mat.NewDense(1, 100, nil)
+		pruebaPorPeso := mat.NewDense(1, 256, nil)
 		pruebaPorPeso.Product(comodin, peso)
 
-		pruebaPorPesoFn := mat.NewDense(1, 100, nil)
+		pruebaPorPesoFn := mat.NewDense(1, 256, nil)
 		pruebaPorPesoFn.Apply(Fn, pruebaPorPeso)
 
 		if esIgual(pruebaAplicoFnEstable, pruebaPorPesoFn) {
@@ -267,12 +267,12 @@ func testear(prueba mat.Matrix, peso *mat.Dense) *mat.Dense {
 */
 func creaMatriz10x10Vacio() mat.Matrix {
 
-	v := make([]float64, 100)
-	for i := 0; i < 100; i++ {
+	v := make([]float64, 256)
+	for i := 0; i < 256; i++ {
 		v[i] = float64(0)
 	}
 	// Create a new matrix
-	A := mat.NewDense(10, 10, v)
+	A := mat.NewDense(16, 16, v)
 	return A
 }
 
@@ -281,9 +281,9 @@ func creaMatriz10x10Vacio() mat.Matrix {
 */
 func esIgual(pruebaAplicoFn *mat.Dense, patron1 mat.Matrix) bool {
 	resul := true
-	C := mat.NewDense(1, 100, nil)
+	C := mat.NewDense(1, 256, nil)
 	C.Sub(pruebaAplicoFn, patron1)
-	count := 100
+	count := 256
 	//buscamos si hay todos en cero
 	for indexI := 0; indexI < count; indexI++ {
 		if int(C.At(0, indexI)) != 0 {
@@ -297,7 +297,7 @@ func esIgual(pruebaAplicoFn *mat.Dense, patron1 mat.Matrix) bool {
 	crearPrueba: a partir de una matriz de "" y "*", lo pasa a una row de 1 y -1
 */
 func crearPrueba(formu formulario.Formulario) mat.Matrix {
-	A := mat.NewDense(1, 100, nil)
+	A := mat.NewDense(1, 256, nil)
 	rowTEst := crearRow(formu.Matriz)
 	A.SetRow(0, rowTEst)
 	return A

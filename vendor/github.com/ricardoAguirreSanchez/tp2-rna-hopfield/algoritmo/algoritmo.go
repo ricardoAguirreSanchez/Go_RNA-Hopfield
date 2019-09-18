@@ -154,7 +154,7 @@ func matPrint(X mat.Matrix) {
 	fmt.Printf("%v\n", fa)
 }
 
-func nuevaMatriz() [][]string {
+func NuevaMatriz() [][]string {
 	matriz10x10Vacia := [][]string{}
 	for i := 0; i < 10; i++ {
 		row1 := []string{"", "", "", "", "", "", "", "", "", ""}
