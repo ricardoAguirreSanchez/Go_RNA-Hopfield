@@ -3,16 +3,16 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "cN99q0BavTEXgsRu8ZPBs9hEKEM=",
+			"checksumSHA1": "Bp0ECPltRk/9Y/PddGj26pKTz7Y=",
 			"path": "github.com/ricardoAguirreSanchez/tp2-rna-hopfield/algoritmo",
-			"revision": "14b1a85842b3ad5cb75dc734c47d48acf4c155e1",
-			"revisionTime": "2019-09-17T22:49:46Z"
+			"revision": "23e94b0aa71777ef046dc18a658115c46c6b13eb",
+			"revisionTime": "2019-09-18T04:48:28Z"
 		},
 		{
-			"checksumSHA1": "BQ6TozPQmCPeImG0E+bUdp+MuA0=",
+			"checksumSHA1": "roGn3DEKQRcEpkuLpXLguL8AomI=",
 			"path": "github.com/ricardoAguirreSanchez/tp2-rna-hopfield/formulario",
-			"revision": "14b1a85842b3ad5cb75dc734c47d48acf4c155e1",
-			"revisionTime": "2019-09-17T22:49:46Z"
+			"revision": "23e94b0aa71777ef046dc18a658115c46c6b13eb",
+			"revisionTime": "2019-09-18T04:48:28Z"
 		},
 		{
 			"checksumSHA1": "9BVOgS89ZFcJzqtjii1k9qaCQ1g=",
