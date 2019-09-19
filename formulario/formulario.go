@@ -11,8 +11,8 @@ func GetInput(c *gin.Context) Formulario {
 	fmt.Println("Matriz ingresada: ")
 	formularioInput := Formulario{}
 	formularioInput.Matriz = nuevaMatriz()
-	for i := 0; i < 16; i++ {
-		for j := 0; j < 16; j++ {
+	for i := 0; i < 20; i++ {
+		for j := 0; j < 20; j++ {
 			value := strconv.Itoa(i) + strconv.Itoa(j)
 			formularioInput.Matriz[i][j] = c.Request.FormValue(value)
 		}
@@ -23,8 +23,8 @@ func GetInput(c *gin.Context) Formulario {
 
 func nuevaMatriz() [][]string {
 	animals := [][]string{}
-	for i := 0; i < 16; i++ {
-		row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	for i := 0; i < 20; i++ {
+		row1 := []string{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 		animals = append(animals, row1)
 	}
 	return animals

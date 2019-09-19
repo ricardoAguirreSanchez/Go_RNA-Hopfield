@@ -12,7 +12,6 @@
   /* Create three equal columns that floats next to each other */
   .column {
     float: left;
-    width: 33.33%;
     padding: 10px;
     /* Should be removed. Only for demonstration */
   }
@@ -31,25 +30,6 @@
     <div class="container">
 
       <div class="row">
-        <div class="column">
-          <table>
-            <tr>
-              <th colspan="10">Linterna Verde</th>
-            </tr>
-
-            {{ range $i, $fi := .FormularioBase1.Matriz }}
-            <tr>
-              {{ range $j, $value := $fi}}
-
-              {{ $name := (printf "%v%v" $i $j) }}
-
-              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
-              {{ end }}
-            </tr>
-            {{ end }}
-
-          </table>
-        </div>
         <div class="column">
           <table>
             <tr>
@@ -86,7 +66,47 @@
           </table>
         </div>
       </div>
+      <div class="row">
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Linterna Verde</th>
+            </tr>
 
+            {{ range $i, $fi := .FormularioBase1.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+
+          </table>
+        </div>
+
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Thor</th>
+            </tr>
+
+            {{ range $i, $fi := .FormularioBase6.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+
+          </table>
+        </div>
+      </div>
       <div class="row">
         <div class="column">
           <table>
@@ -123,27 +143,8 @@
             {{ end }}
           </table>
         </div>
-        <div class="column">
-          <table>
-            <tr>
-              <th colspan="10">Thor</th>
-            </tr>
 
-            {{ range $i, $fi := .FormularioBase6.Matriz }}
-            <tr>
-              {{ range $j, $value := $fi}}
-
-              {{ $name := (printf "%v%v" $i $j) }}
-
-              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
-              {{ end }}
-            </tr>
-            {{ end }}
-
-          </table>
-        </div>
       </div>
-
       <div class="row">
         <div class="column">
           <table>
