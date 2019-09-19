@@ -4,9 +4,11 @@
     width: 24px;
     text-align: center;
   }
+
   * {
     box-sizing: border-box;
   }
+
   /* Create three equal columns that floats next to each other */
   .column {
     float: left;
@@ -14,6 +16,7 @@
     padding: 10px;
     /* Should be removed. Only for demonstration */
   }
+
   /* Clear floats after the columns */
   .row:after {
     content: "";
@@ -27,15 +30,31 @@
 
   <form action="/calcular" method="post">
     <div class="container">
-
-      <div class="row">
+      <!-- <div class="row">
         <div class="column">
           <table>
             <tr>
-              <th colspan="10">Linterna Verde</th>
+              <th colspan="10">Spider-Man</th>
+            </tr>
+            {{ range $i, $fi := .FormularioBase5.Matriz }}
+            <tr>
+              {{ range $j, $value := $fi}}
+
+              {{ $name := (printf "%v%v" $i $j) }}
+              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
+              {{ end }}
+            </tr>
+            {{ end }}
+          </table>
+        </div>
+
+        <div class="column">
+          <table>
+            <tr>
+              <th colspan="10">Batman</th>
             </tr>
 
-            {{ range $i, $fi := .FormularioBase1.Matriz }}
+            {{ range $i, $fi := .FormularioBase3.Matriz }}
             <tr>
               {{ range $j, $value := $fi}}
 
@@ -64,26 +83,7 @@
             {{ end }}
           </table>
         </div>
-        <div class="column">
-          <table>
-            <tr>
-              <th colspan="10">Batman</th>
-            </tr>
-
-            {{ range $i, $fi := .FormularioBase3.Matriz }}
-            <tr>
-              {{ range $j, $value := $fi}}
-
-              {{ $name := (printf "%v%v" $i $j) }}
-
-              <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
-              {{ end }}
-            </tr>
-            {{ end }}
-
-          </table>
-        </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="column">
           <table>
@@ -107,17 +107,20 @@
         <div class="column">
           <table>
             <tr>
-              <th colspan="10">Spider-Man</th>
+              <th colspan="10">Linterna Verde</th>
             </tr>
-            {{ range $i, $fi := .FormularioBase5.Matriz }}
+
+            {{ range $i, $fi := .FormularioBase1.Matriz }}
             <tr>
               {{ range $j, $value := $fi}}
 
               {{ $name := (printf "%v%v" $i $j) }}
+
               <td><input disabled name="{{$name}}" type="text" value="{{$value}}" /></td>
               {{ end }}
             </tr>
             {{ end }}
+
           </table>
         </div>
         <div class="column">
@@ -161,7 +164,7 @@
 
           </table>
           <div>
-            <input type="submit" value="calcular"> (con *)</div>
+            <input type="submit" value="calcular"></div>
         </div>
         <div class="column">
           <table>

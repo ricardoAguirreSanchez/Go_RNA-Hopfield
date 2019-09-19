@@ -140,7 +140,7 @@ func convertMatMatriz(pruebaAplicoFn *mat.Dense) [][]string {
 		for j := 0; j < 10; j++ {
 			posicion := j + i*10
 			if int(pruebaAplicoFn.At(0, posicion)) == 1 {
-				resul[i][j] = "*"
+				resul[i][j] = "x"
 			} else {
 				resul[i][j] = ""
 			}
@@ -179,7 +179,7 @@ func crearRow(matriz [][]string) []float64 {
 	resul := []float64{}
 	for i := range matriz {
 		for j := range matriz[i] {
-			if matriz[i][j] == "*" {
+			if matriz[i][j] == "x" {
 				resul = append(resul, 1)
 			} else {
 				resul = append(resul, -1)
@@ -294,7 +294,7 @@ func esIgual(pruebaAplicoFn *mat.Dense, patron1 mat.Matrix) bool {
 }
 
 /*
-	crearPrueba: a partir de una matriz de "" y "*", lo pasa a una row de 1 y -1
+	crearPrueba: a partir de una matriz de "" y "x", lo pasa a una row de 1 y -1
 */
 func crearPrueba(formu formulario.Formulario) mat.Matrix {
 	A := mat.NewDense(1, 100, nil)
