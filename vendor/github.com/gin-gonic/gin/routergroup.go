@@ -137,7 +137,7 @@ func (group *RouterGroup) Any(relativePath string, handlers ...HandlerFunc) rout
 }
 
 func (group *RouterGroup) StaticFile(relativePath, filepath string) routesInterface {
-	if strings.Contains(relativePath, ":") || strings.Contains(relativePath, "*") {
+	if strings.Contains(relativePath, ":") || strings.Contains(relativePath, "x") {
 		panic("URL parameters can not be used when serving a static file")
 	}
 	handler := func(c *Context) {
@@ -159,7 +159,7 @@ func (group *RouterGroup) Static(relativePath, root string) routesInterface {
 }
 
 func (group *RouterGroup) StaticFS(relativePath string, fs http.FileSystem) routesInterface {
-	if strings.Contains(relativePath, ":") || strings.Contains(relativePath, "*") {
+	if strings.Contains(relativePath, ":") || strings.Contains(relativePath, "x") {
 		panic("URL parameters can not be used when serving a static folder")
 	}
 	handler := group.createStaticHandler(relativePath, fs)
