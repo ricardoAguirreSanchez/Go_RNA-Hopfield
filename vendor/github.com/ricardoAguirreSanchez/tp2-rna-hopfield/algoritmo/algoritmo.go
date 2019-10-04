@@ -22,29 +22,29 @@ func Aprende() *mat.Dense {
 	D11 := mat.NewDense(100, 100, nil)
 	D11.Apply(diagonalEnCeros, D1)
 
-	fmt.Println("------------CrearMatrizFlash------------------")
-	matrizFlash := CrearMatrizFlash()
-	patron2 := crearPatron(matrizFlash)
+	// fmt.Println("------------CrearMatrizFlash------------------")
+	// matrizFlash := CrearMatrizFlash()
+	// patron2 := crearPatron(matrizFlash)
 
-	PrintMatrix(matrizFlash)
+	// PrintMatrix(matrizFlash)
 
-	D2 := mat.NewDense(100, 100, nil)
-	D2.Product(patron2.T(), patron2)
+	// D2 := mat.NewDense(100, 100, nil)
+	// D2.Product(patron2.T(), patron2)
 
-	D22 := mat.NewDense(100, 100, nil)
-	D22.Apply(diagonalEnCeros, D2)
+	// D22 := mat.NewDense(100, 100, nil)
+	// D22.Apply(diagonalEnCeros, D2)
 
-	fmt.Println("------------CrearMatrizBatman------------------")
-	matrizBatman := CrearMatrizBatman()
-	patron3 := crearPatron(matrizBatman)
+	// fmt.Println("------------CrearMatrizBatman------------------")
+	// matrizBatman := CrearMatrizBatman()
+	// patron3 := crearPatron(matrizBatman)
 
-	PrintMatrix(matrizBatman)
+	// PrintMatrix(matrizBatman)
 
-	D3 := mat.NewDense(100, 100, nil)
-	D3.Product(patron3.T(), patron3)
+	// D3 := mat.NewDense(100, 100, nil)
+	// D3.Product(patron3.T(), patron3)
 
-	D33 := mat.NewDense(100, 100, nil)
-	D33.Apply(diagonalEnCeros, D3)
+	// D33 := mat.NewDense(100, 100, nil)
+	// D33.Apply(diagonalEnCeros, D3)
 
 	fmt.Println("------------CrearMatriz4Fantasticos------------------")
 	matriz4Fantastico := CrearMatriz4Fantasticos()
@@ -58,17 +58,17 @@ func Aprende() *mat.Dense {
 	D44 := mat.NewDense(100, 100, nil)
 	D44.Apply(diagonalEnCeros, D4)
 
-	fmt.Println("------------CrearMatrizSpiderman------------------")
-	matrizSpiderman := CrearMatrizSpiderman()
-	patron5 := crearPatron(matrizSpiderman)
+	// fmt.Println("------------CrearMatrizSpiderman------------------")
+	// matrizSpiderman := CrearMatrizSpiderman()
+	// patron5 := crearPatron(matrizSpiderman)
 
-	PrintMatrix(matrizSpiderman)
+	// PrintMatrix(matrizSpiderman)
 
-	D5 := mat.NewDense(100, 100, nil)
-	D5.Product(patron5.T(), patron5)
+	// D5 := mat.NewDense(100, 100, nil)
+	// D5.Product(patron5.T(), patron5)
 
-	D55 := mat.NewDense(100, 100, nil)
-	D55.Apply(diagonalEnCeros, D5)
+	// D55 := mat.NewDense(100, 100, nil)
+	// D55.Apply(diagonalEnCeros, D5)
 
 	fmt.Println("------------CrearMatrizThor------------------")
 	matrizThor := CrearMatrizThor()
@@ -82,32 +82,38 @@ func Aprende() *mat.Dense {
 	D66 := mat.NewDense(100, 100, nil)
 	D66.Apply(diagonalEnCeros, D6)
 
+	// fmt.Println("------------Calculamos el peso------------------")
+	// pesoRed2 := mat.NewDense(100, 100, nil)
+	// pesoRed2.Add(D11, D22)
+	// pesoRed3 := mat.NewDense(100, 100, nil)
+	// pesoRed3.Add(D11, D33)
+	// pesoRed4 := mat.NewDense(100, 100, nil)
+	// pesoRed4.Add(pesoRed3, D44)
+	// pesoRed5 := mat.NewDense(100, 100, nil)
+	// pesoRed5.Add(pesoRed4, D55)
+	// pesoTotal := mat.NewDense(100, 100, nil)
+	// pesoTotal.Add(pesoRed5, D66)
+
 	fmt.Println("------------Calculamos el peso------------------")
 	pesoRed2 := mat.NewDense(100, 100, nil)
-	pesoRed2.Add(D11, D22)
+	pesoRed2.Add(D11, D44)
 	pesoRed3 := mat.NewDense(100, 100, nil)
-	pesoRed3.Add(D11, D33)
-	pesoRed4 := mat.NewDense(100, 100, nil)
-	pesoRed4.Add(pesoRed3, D44)
-	pesoRed5 := mat.NewDense(100, 100, nil)
-	pesoRed5.Add(pesoRed4, D55)
-	pesoTotal := mat.NewDense(100, 100, nil)
-	pesoTotal.Add(pesoRed5, D66)
+	pesoRed3.Add(pesoRed2, D66)
 
-	fmt.Println("patron1:")
-	matPrint(patron1)
-	fmt.Println("patron2:")
-	matPrint(patron2)
-	fmt.Println("patron3:")
-	matPrint(patron3)
-	fmt.Println("patron4:")
-	matPrint(patron4)
-	fmt.Println("patron5:")
-	matPrint(patron5)
-	fmt.Println("patron6:")
-	matPrint(patron6)
+	// fmt.Println("patron1:")
+	// matPrint(patron1)
+	// fmt.Println("patron2:")
+	// matPrint(patron2)
+	// fmt.Println("patron3:")
+	// matPrint(patron3)
+	// fmt.Println("patron4:")
+	// matPrint(patron4)
+	// fmt.Println("patron5:")
+	// matPrint(patron5)
+	// fmt.Println("patron6:")
+	// matPrint(patron6)
 
-	return pesoRed5
+	return pesoRed3
 }
 
 func AplicoBusqueda(formularioInput formulario.Formulario, peso *mat.Dense) formulario.Formulario {
