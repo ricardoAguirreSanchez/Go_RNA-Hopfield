@@ -34,17 +34,17 @@ func Aprende() *mat.Dense {
 	// D22 := mat.NewDense(100, 100, nil)
 	// D22.Apply(diagonalEnCeros, D2)
 
-	// fmt.Println("------------CrearMatrizBatman------------------")
-	// matrizBatman := CrearMatrizBatman()
-	// patron3 := crearPatron(matrizBatman)
+	fmt.Println("------------CrearMatrizBatman------------------")
+	matrizBatman := CrearMatrizBatman()
+	patron3 := crearPatron(matrizBatman)
 
-	// PrintMatrix(matrizBatman)
+	PrintMatrix(matrizBatman)
 
-	// D3 := mat.NewDense(100, 100, nil)
-	// D3.Product(patron3.T(), patron3)
+	D3 := mat.NewDense(100, 100, nil)
+	D3.Product(patron3.T(), patron3)
 
-	// D33 := mat.NewDense(100, 100, nil)
-	// D33.Apply(diagonalEnCeros, D3)
+	D33 := mat.NewDense(100, 100, nil)
+	D33.Apply(diagonalEnCeros, D3)
 
 	fmt.Println("------------CrearMatriz4Fantasticos------------------")
 	matriz4Fantastico := CrearMatriz4Fantasticos()
@@ -70,17 +70,17 @@ func Aprende() *mat.Dense {
 	// D55 := mat.NewDense(100, 100, nil)
 	// D55.Apply(diagonalEnCeros, D5)
 
-	fmt.Println("------------CrearMatrizThor------------------")
-	matrizThor := CrearMatrizThor()
-	patron6 := crearPatron(matrizThor)
+	// fmt.Println("------------CrearMatrizThor------------------")
+	// matrizThor := CrearMatrizThor()
+	// patron6 := crearPatron(matrizThor)
 
-	PrintMatrix(matrizThor)
+	// PrintMatrix(matrizThor)
 
-	D6 := mat.NewDense(100, 100, nil)
-	D6.Product(patron6.T(), patron6)
+	// D6 := mat.NewDense(100, 100, nil)
+	// D6.Product(patron6.T(), patron6)
 
-	D66 := mat.NewDense(100, 100, nil)
-	D66.Apply(diagonalEnCeros, D6)
+	// D66 := mat.NewDense(100, 100, nil)
+	// D66.Apply(diagonalEnCeros, D6)
 
 	// fmt.Println("------------Calculamos el peso------------------")
 	// pesoRed2 := mat.NewDense(100, 100, nil)
@@ -96,9 +96,9 @@ func Aprende() *mat.Dense {
 
 	fmt.Println("------------Calculamos el peso------------------")
 	pesoRed2 := mat.NewDense(100, 100, nil)
-	pesoRed2.Add(D11, D44)
+	pesoRed2.Add(D11, D33)
 	pesoRed3 := mat.NewDense(100, 100, nil)
-	pesoRed3.Add(pesoRed2, D66)
+	pesoRed3.Add(pesoRed2, D44)
 
 	// fmt.Println("patron1:")
 	// matPrint(patron1)
