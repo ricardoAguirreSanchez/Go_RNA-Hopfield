@@ -311,7 +311,7 @@ func PrintMatrix(matrizLinterna [][]string) {
 	for i, row := range matrizLinternaAux {
 		for j, value := range row {
 			if value == "" {
-				matrizLinternaAux[i][j] = " "
+				matrizLinternaAux[i][j] = ""
 			}
 		}
 		fmt.Println(row)
