@@ -3,7 +3,7 @@ package algoritmo
 import (
 	"fmt"
 
-	"github.com/ricardoAguirreSanchez/tp2-rna-hopfield/formulario"
+	"github.com/mercadolibre/tp2-rna-hopfield/formulario"
 	"gonum.org/v1/gonum/mat"
 )
 
@@ -22,17 +22,17 @@ func Aprende() *mat.Dense {
 	D11 := mat.NewDense(100, 100, nil)
 	D11.Apply(diagonalEnCeros, D1)
 
-	// fmt.Println("------------CrearMatrizFlash------------------")
-	// matrizFlash := CrearMatrizFlash()
-	// patron2 := crearPatron(matrizFlash)
+	fmt.Println("------------CrearMatrizFlash------------------")
+	matrizFlash := CrearMatrizFlash()
+	patron2 := crearPatron(matrizFlash)
 
-	// PrintMatrix(matrizFlash)
+	PrintMatrix(matrizFlash)
 
-	// D2 := mat.NewDense(100, 100, nil)
-	// D2.Product(patron2.T(), patron2)
+	D2 := mat.NewDense(100, 100, nil)
+	D2.Product(patron2.T(), patron2)
 
-	// D22 := mat.NewDense(100, 100, nil)
-	// D22.Apply(diagonalEnCeros, D2)
+	D22 := mat.NewDense(100, 100, nil)
+	D22.Apply(diagonalEnCeros, D2)
 
 	fmt.Println("------------CrearMatrizBatman------------------")
 	matrizBatman := CrearMatrizBatman()
@@ -58,47 +58,47 @@ func Aprende() *mat.Dense {
 	D44 := mat.NewDense(100, 100, nil)
 	D44.Apply(diagonalEnCeros, D4)
 
-	// fmt.Println("------------CrearMatrizSpiderman------------------")
-	// matrizSpiderman := CrearMatrizSpiderman()
-	// patron5 := crearPatron(matrizSpiderman)
+	fmt.Println("------------CrearMatrizSpiderman------------------")
+	matrizSpiderman := CrearMatrizSpiderman()
+	patron5 := crearPatron(matrizSpiderman)
 
-	// PrintMatrix(matrizSpiderman)
+	PrintMatrix(matrizSpiderman)
 
-	// D5 := mat.NewDense(100, 100, nil)
-	// D5.Product(patron5.T(), patron5)
+	D5 := mat.NewDense(100, 100, nil)
+	D5.Product(patron5.T(), patron5)
 
-	// D55 := mat.NewDense(100, 100, nil)
-	// D55.Apply(diagonalEnCeros, D5)
+	D55 := mat.NewDense(100, 100, nil)
+	D55.Apply(diagonalEnCeros, D5)
 
-	// fmt.Println("------------CrearMatrizThor------------------")
-	// matrizThor := CrearMatrizThor()
-	// patron6 := crearPatron(matrizThor)
+	fmt.Println("------------CrearMatrizThor------------------")
+	matrizThor := CrearMatrizThor()
+	patron6 := crearPatron(matrizThor)
 
-	// PrintMatrix(matrizThor)
+	PrintMatrix(matrizThor)
 
-	// D6 := mat.NewDense(100, 100, nil)
-	// D6.Product(patron6.T(), patron6)
+	D6 := mat.NewDense(100, 100, nil)
+	D6.Product(patron6.T(), patron6)
 
-	// D66 := mat.NewDense(100, 100, nil)
-	// D66.Apply(diagonalEnCeros, D6)
-
-	// fmt.Println("------------Calculamos el peso------------------")
-	// pesoRed2 := mat.NewDense(100, 100, nil)
-	// pesoRed2.Add(D11, D22)
-	// pesoRed3 := mat.NewDense(100, 100, nil)
-	// pesoRed3.Add(D11, D33)
-	// pesoRed4 := mat.NewDense(100, 100, nil)
-	// pesoRed4.Add(pesoRed3, D44)
-	// pesoRed5 := mat.NewDense(100, 100, nil)
-	// pesoRed5.Add(pesoRed4, D55)
-	// pesoTotal := mat.NewDense(100, 100, nil)
-	// pesoTotal.Add(pesoRed5, D66)
+	D66 := mat.NewDense(100, 100, nil)
+	D66.Apply(diagonalEnCeros, D6)
 
 	fmt.Println("------------Calculamos el peso------------------")
 	pesoRed2 := mat.NewDense(100, 100, nil)
-	pesoRed2.Add(D11, D33)
+	pesoRed2.Add(D11, D22)
 	pesoRed3 := mat.NewDense(100, 100, nil)
-	pesoRed3.Add(pesoRed2, D44)
+	pesoRed3.Add(pesoRed2, D33)
+	pesoRed4 := mat.NewDense(100, 100, nil)
+	pesoRed4.Add(pesoRed3, D44)
+	pesoRed5 := mat.NewDense(100, 100, nil)
+	pesoRed5.Add(pesoRed4, D55)
+	pesoTotal := mat.NewDense(100, 100, nil)
+	pesoTotal.Add(pesoRed5, D66)
+
+	// fmt.Println("------------Calculamos el peso------------------")
+	// pesoRed2 := mat.NewDense(100, 100, nil)
+	// pesoRed2.Add(D11, D33)
+	// pesoRed3 := mat.NewDense(100, 100, nil)
+	// pesoRed3.Add(pesoRed2, D44)
 
 	// fmt.Println("patron1:")
 	// matPrint(patron1)
@@ -113,7 +113,7 @@ func Aprende() *mat.Dense {
 	// fmt.Println("patron6:")
 	// matPrint(patron6)
 
-	return pesoRed3
+	return pesoTotal
 }
 
 func AplicoBusqueda(formularioInput formulario.Formulario, peso *mat.Dense) formulario.Formulario {

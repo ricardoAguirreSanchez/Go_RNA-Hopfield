@@ -30,7 +30,7 @@
 
   <form action="/calcular" method="post">
     <div class="container">
-      <!-- <div class="row">
+      <div class="row">
         <div class="column">
           <table>
             <tr>
@@ -83,7 +83,7 @@
             {{ end }}
           </table>
         </div>
-      </div> -->
+      </div>
       <div class="row">
         <div class="column">
           <table>
@@ -112,6 +112,7 @@
 
             {{ range $i, $fi := .FormularioBase1.Matriz }}
             <tr>
+
               {{ range $j, $value := $fi}}
 
               {{ $name := (printf "%v%v" $i $j) }}
@@ -126,10 +127,10 @@
         <div class="column">
           <table>
             <tr>
-              <th colspan="10">Batman</th>
+              <th colspan="10">Thor</th>
             </tr>
 
-            {{ range $i, $fi := .FormularioBase3.Matriz }}
+            {{ range $i, $fi := .FormularioBase6.Matriz }}
             <tr>
               {{ range $j, $value := $fi}}
 
