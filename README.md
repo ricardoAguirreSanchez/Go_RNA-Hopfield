@@ -5,6 +5,12 @@ Una implementación de red neuronal Hopfield para reconocimiento de patrones en 
 
 Esta aplicación implementa el algoritmo de red neuronal Hopfield para el reconocimiento y recuperación de patrones, específicamente diseñada para reconocer patrones de superhéroes.
 
+## 🌐 Demo en vivo usando render.com
+
+**Aplicación desplegada:** [go-rna-hopfield.onrender.com](https://go-rna-hopfield.onrender.com)
+
+Puedes probar la aplicación directamente desde tu navegador sin necesidad de instalación local.
+
 ## Características
 
 - Implementación del algoritmo Hopfield para redes neuronales
