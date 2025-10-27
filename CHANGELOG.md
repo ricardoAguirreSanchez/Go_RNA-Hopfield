@@ -11,6 +11,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ### Changed
 - Actualizamos dependencias.
+- Revivimos proyecto.
 
 ## [1.0.0] - 2024-01-15
 
