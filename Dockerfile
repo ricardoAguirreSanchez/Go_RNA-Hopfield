@@ -1,21 +1,42 @@
-FROM heroku/heroku:18-build as build
+# Build stage
+FROM golang:1.25-alpine AS builder
 
-COPY . /app
+# Set working directory
 WORKDIR /app
 
-# Setup buildpack
-RUN mkdir -p /tmp/buildpack/heroku/go /tmp/build_cache /tmp/env
-RUN curl https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/go.tgz | tar xz -C /tmp/buildpack/heroku/go
+# Copy go mod files
+COPY go.mod go.sum ./
 
-#Execute Buildpack
-RUN STACK=heroku-18 /tmp/buildpack/heroku/go/bin/compile /app /tmp/build_cache /tmp/env
+# Download dependencies
+RUN go mod download
 
-# Prepare final, minimal image
-FROM heroku/heroku:18
+# Copy source code
+COPY . .
 
-COPY --from=build /app /app
-ENV HOME /app
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+
+# Final stage
+FROM alpine:latest
+
+# Install ca-certificates for HTTPS requests
+RUN apk --no-cache add ca-certificates
+
+# Create app directory
 WORKDIR /app
-RUN useradd -m heroku
-USER heroku
-CMD /app/bin/go-getting-started
+
+# Copy the binary from builder stage
+COPY --from=builder /app/main .
+
+# Copy templates and static files
+COPY --from=builder /app/templates ./templates
+COPY --from=builder /app/static ./static
+
+# Set proper permissions
+RUN chmod +x main
+
+# Expose port
+EXPOSE 8081
+
+# Run the application
+CMD ["./main"]

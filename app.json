@@ -1,12 +1,13 @@
 {
-  "name": "Start on Heroku: Go",
-  "description": "Go Getting Started Example App",
+  "name": "Go RNA-Hopfield",
+  "description": "RNA Hopfield Neural Network Implementation",
   "keywords": [
-    "getting-started",
+    "neural-network",
+    "hopfield",
     "go",
-    "sample",
-    "example"
+    "rna",
+    "pattern-recognition"
   ],
-  "website": "http://github.com/heroku/go-getting-started",
-  "repository": "http://github.com/heroku/go-getting-started"
+  "website": "http://github.com/ricardoAguirreSanchez/Go_RNA-Hopfield",
+  "repository": "http://github.com/ricardoAguirreSanchez/Go_RNA-Hopfield"
 }
