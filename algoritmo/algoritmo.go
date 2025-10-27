@@ -3,7 +3,7 @@ package algoritmo
 import (
 	"fmt"
 
-	"github.com/ricardoAguirreSanchez/tp2-rna-hopfield/formulario"
+	"github.com/ricardoAguirreSanchez/Go_RNA-Hopfield/formulario"
 	"gonum.org/v1/gonum/mat"
 )
 
